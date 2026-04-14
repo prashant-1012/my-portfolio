@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { Code2, Layers, Zap, Users } from 'lucide-react'
 import { personalInfo } from '../constants/data'
 import profileImg from "../assets/portfolio_img.png";
+import RevealSection from './RevealSection';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -46,6 +47,7 @@ const highlights = [
 
 const About = () => {
   return (
+    <RevealSection delay={100}>
     <section
       id="about"
       className="py-24 px-6 bg-gray-50 dark:bg-gray-900/50"
@@ -211,6 +213,7 @@ hover:shadow-md hover:shadow-purple-500/20"
 
       </div>
     </section>
+    </RevealSection>
   )
 }
 

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import {ExternalLink, ArrowUpRight } from 'lucide-react'
 import { projects } from '../constants/data'
 import { FaGithub } from 'react-icons/fa'
+import RevealSection from './RevealSection'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -116,6 +117,7 @@ const ProjectCard = ({ project, index }) => {
 
 const Projects = () => {
   return (
+    <RevealSection delay={100}>
     <section
       id="projects"
       className="py-24 px-6 bg-gray-50 dark:bg-gray-900/50"
@@ -178,6 +180,7 @@ const Projects = () => {
 
       </div>
     </section>
+    </RevealSection>
   )
 }
 

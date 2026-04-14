@@ -4,6 +4,7 @@ import {
   Radio, Wrench, Terminal
 } from 'lucide-react'
 import { skills } from '../constants/data'
+import RevealSection from './RevealSection'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -45,6 +46,7 @@ const SkillCard = ({ category, items, index }) => {
   const Icon = config.icon
 
   return (
+    <RevealSection delay={100}>
     <motion.div
       variants={fadeUp}
       initial="hidden"
@@ -75,11 +77,13 @@ const SkillCard = ({ category, items, index }) => {
         ))}
       </div>
     </motion.div>
+    </RevealSection>
   )
 }
 
 const Skills = () => {
   return (
+    <RevealSection delay={100}>
     <section
       id="skills"
       className="py-24 px-6 bg-white dark:bg-gray-950"
@@ -132,6 +136,7 @@ const Skills = () => {
 
       </div>
     </section>
+    </RevealSection>
   )
 }
 
