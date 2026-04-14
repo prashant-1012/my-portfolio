@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Mail, MapPin, Send } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
-import RevealSection from "./RevealSection";
 
 const socialLinks = [
   { icon: FaGithub, label: "GitHub", href: "https://github.com/prashant-1012" },
@@ -27,7 +26,7 @@ export default function Contact() {
   };
 
   return (
-    <RevealSection delay={100}>
+
     <section
       id="contact"
       className="py-28 px-6 bg-white dark:bg-neutral-950 transition-colors duration-300"
@@ -180,6 +179,5 @@ export default function Contact() {
         </div>
       </div>
     </section>
-    </RevealSection>
   );
 }
