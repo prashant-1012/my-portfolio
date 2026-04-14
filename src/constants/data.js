@@ -26,7 +26,7 @@ export const projects = [
     tags: ["React.js", "Redux Toolkit", "Tailwind CSS", "REST APIs"],
     image: "https://placehold.co/600x400/6366f1/ffffff?text=SaaS+CRM",
     github: "#",
-    live: "#",
+    live: "https://mini-crm-dashboard-one.vercel.app/",
   },
   {
     id: 2,

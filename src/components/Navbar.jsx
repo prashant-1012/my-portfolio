@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
-import { Moon, Sun, Menu, X } from 'lucide-react'
+import { Moon, Sun, Menu, X, Download } from 'lucide-react'
 import useTheme from '../hooks/useTheme'
+import resumePdf from '../assets/Prashant_Kumar_Resume.pdf'
 
 const navLinks = [
   { label: 'About',      href: '#about' },
@@ -94,9 +95,11 @@ const Navbar = () => {
 
           {/* Resume Button — desktop only */}
           <a
-            href="#"
+            href={resumePdf}
+            download="Prashant_Kumar_Resume.pdf"
             className="hidden md:inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-purple-600 hover:bg-purple-700 text-white transition-colors duration-200"
           >
+            <Download size={16} />
             Resume
           </a>
 
@@ -131,9 +134,11 @@ const Navbar = () => {
           ))}
           <li>
             <a
-              href="#"
+              href={resumePdf}
+              download="Prashant_Kumar_Resume.pdf"
               className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-purple-600 hover:bg-purple-700 text-white transition-colors"
             >
+              <Download size={16} />
               Resume
             </a>
           </li>

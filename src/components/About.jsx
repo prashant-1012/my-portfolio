@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { Code2, Layers, Zap, Users } from 'lucide-react'
 import { personalInfo } from '../constants/data'
-import profileImg from "../assets/PRASHANT_PROFILE.jpg";
+import profileImg from "../assets/portfolio_img.png";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
