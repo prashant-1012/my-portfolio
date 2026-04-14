@@ -70,9 +70,26 @@ const Navbar = () => {
           <button
             onClick={toggleTheme}
             aria-label="Toggle theme"
-            className="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200"
+            className="relative inline-flex items-center w-14 h-7 rounded-full bg-gray-200 dark:bg-gray-700/50 border border-transparent dark:border-gray-700 transition-colors duration-300 focus:outline-none"
           >
-            {isDark ? <Sun size={18} /> : <Moon size={18} />}
+            <span className="sr-only">Toggle theme</span>
+            
+            {/* Sun Icon (Light Mode) */}
+            <span className="absolute left-1.5 flex items-center justify-center text-amber-500 pointer-events-none">
+              <Sun size={14} />
+            </span>
+            
+            {/* Moon Icon (Dark Mode) */}
+            <span className="absolute right-1.5 flex items-center justify-center text-indigo-400 pointer-events-none">
+              <Moon size={14} />
+            </span>
+            
+            {/* Sliding Thumb */}
+            <span
+              className={`relative z-10 block h-5 w-5 rounded-full bg-white dark:bg-gray-800 shadow-sm border border-gray-100 dark:border-gray-800 transform transition-transform duration-300 ease-in-out ${
+                isDark ? 'translate-x-8' : 'translate-x-1'
+              }`}
+            />
           </button>
 
           {/* Resume Button — desktop only */}
