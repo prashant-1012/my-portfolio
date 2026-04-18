@@ -15,8 +15,8 @@ const fadeUp = {
 // Quick stat cards shown below the bio
 const stats = [
   { label: 'Years Experience', value: '4+' },
-  { label: 'Projects Delivered', value: '20+' },
-  { label: 'APIs Integrated',   value: '20+' },
+  { label: 'Projects Delivered', value: '10+' },
+  { label: 'APIs Integrated',   value: '50+' },
   { label: 'UI Components Built', value: '30+' },
 ]
 
@@ -142,7 +142,7 @@ const About = () => {
 
             {/* Tags */}
             <div className="flex flex-wrap gap-2 pt-2">
-              {['React.js', 'Redux Toolkit', 'Tailwind CSS', 'TypeScript', 'WebSockets', 'REST APIs'].map(tag => (
+              {['React.js', 'TypeScript', 'React Router', 'Redux Toolkit', 'Tailwind CSS', 'Node.js', 'Express.js', 'Socket.io', 'MongoDB', 'WebSockets', 'REST APIs'].map(tag => (
                 <span
                   key={tag}
                   className="px-3 py-1 text-sm font-medium rounded-full 
