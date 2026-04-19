@@ -1,4 +1,4 @@
-import planniumImg from "../assets/plannium.png";
+import planniumImg from "../assets/Plannium.png";
 import crmImg from "../assets/CRM.png";
 
 export const personalInfo = {
