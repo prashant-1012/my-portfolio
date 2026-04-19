@@ -1,3 +1,6 @@
+import planniumImg from "../assets/plannium.png";
+import crmImg from "../assets/CRM.png";
+
 export const personalInfo = {
   name: "Prashant Kumar",
   role: "Frontend Developer (React.js)",
@@ -34,7 +37,8 @@ export const projects = [
   "Axios",
   "Recharts"
 ],
-    image: "/src/assets/CRM.png",
+    // image: "/src/assets/CRM.png",
+    image: crmImg,
     github: "#",
     live: "https://mini-crm-dashboard-one.vercel.app/",
   },
@@ -43,7 +47,8 @@ export const projects = [
     title: "Plannium – Smart Daily Task Planner",
     description: "A modern task planner with multi-day view, real-time add/edit/delete, completion tracking, and localStorage persistence. Features responsive UI, dark mode, search, and animated interactions.",
     tags: ["React.js", "Redux Toolkit", "Tailwind CSS", "Framer Motion", "date-fns", "localStorage", "Vite", "Responsive Design", "State Management"],
-    image: "/src/assets/Plannium.png",
+    // image: "/src/assets/Plannium.png",
+    image: planniumImg,
     github: "#",
     live: "https://plannium.vercel.app/",
   },
