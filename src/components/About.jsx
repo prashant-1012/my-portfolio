@@ -142,7 +142,7 @@ const About = () => {
 
             {/* Tags */}
             <div className="flex flex-wrap gap-2 pt-2">
-              {['React.js', 'TypeScript', 'React Router', 'Redux Toolkit', 'Tailwind CSS', 'Node.js', 'Express.js', 'Socket.io', 'MongoDB', 'WebSockets', 'REST APIs'].map(tag => (
+              {['React.js', 'TypeScript', 'React Router', 'Redux Toolkit', 'Tailwind CSS', 'Jest', 'React Testing Library', 'Socket.io', 'WebSockets', 'REST APIs'].map(tag => (
                 <span
                   key={tag}
                   className="px-3 py-1 text-sm font-medium rounded-full 
