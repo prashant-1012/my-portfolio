@@ -129,7 +129,7 @@ const About = () => {
             className="space-y-6"
           >
             <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-              I'm a <span className="font-semibold text-gray-900 dark:text-white">Frontend Developer</span> with
+              I'm a <span className="font-semibold text-gray-900 dark:text-white">Software Engineer</span> with
               4+ years of hands-on experience building scalable SaaS CRM platforms. I specialize in
               React, Redux Toolkit, and Tailwind CSS — focused on clean architecture and real performance gains.
             </p>

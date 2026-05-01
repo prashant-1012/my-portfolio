@@ -3,7 +3,7 @@ import crmImg from "../assets/CRM.png";
 
 export const personalInfo = {
   name: "Prashant Kumar",
-  role: "Frontend Engineer | React.js · TypeScript · SaaS Systems",
+  role: "Software Engineer | React.js · TypeScript · SaaS Systems",
   tagline: "Building scalable SaaS products with clean, performant UI.",
   email: "prashant2009kr@gmail.com",
   phone: "7972052896",
@@ -77,7 +77,7 @@ export const projects = [
 export const experience = [
   {
     id: 1,
-    role: "Software Developer (Frontend)",
+    role: "Software Engineer (Frontend)",
     company: "DigitalBuzz LLP",
     period: "Feb 2025 – Present",
     type: "Full-time",
