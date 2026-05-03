@@ -1,7 +1,35 @@
-import { motion } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
 import { Code2, Layers, Zap, Users } from 'lucide-react'
 import { personalInfo } from '../constants/data'
 import profileImg from "../assets/portfolio_img.png";
+
+const AnimatedCounter = ({ target, suffix = '' }) => {
+  const [count, setCount] = useState(0)
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true })
+
+  useEffect(() => {
+    if (!inView) return
+    let start = 0
+    const duration = 1500
+    const stepTime = 16
+    const steps = Math.ceil(duration / stepTime)
+    const increment = target / steps
+    const timer = setInterval(() => {
+      start += increment
+      if (start >= target) {
+        setCount(target)
+        clearInterval(timer)
+      } else {
+        setCount(Math.floor(start))
+      }
+    }, stepTime)
+    return () => clearInterval(timer)
+  }, [inView, target])
+
+  return <span ref={ref}>{count}{suffix}</span>
+}
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -14,10 +42,10 @@ const fadeUp = {
 
 // Quick stat cards shown below the bio
 const stats = [
-  { label: 'Years Experience', value: '4+' },
-  { label: 'Projects Delivered', value: '10+' },
-  { label: 'APIs Integrated',   value: '50+' },
-  { label: 'UI Components Built', value: '30+' },
+  { label: 'Years Experience',   target: 4,  suffix: '+' },
+  { label: 'Projects Delivered', target: 10, suffix: '+' },
+  { label: 'APIs Integrated',    target: 50, suffix: '+' },
+  { label: 'UI Components Built',target: 30, suffix: '+' },
 ]
 
 // Highlights — what makes you stand out
@@ -129,13 +157,13 @@ const About = () => {
             className="space-y-6"
           >
             <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-              I'm a <span className="font-semibold text-gray-900 dark:text-white">Software Engineer</span> with
+              I'm a <span className="font-semibold text-gray-900 dark:text-white">Software Engineer (Frontend)</span> with
               4+ years of hands-on experience building scalable SaaS CRM platforms. I specialize in
               React, Redux Toolkit, and Tailwind CSS — focused on clean architecture and real performance gains.
             </p>
 
             <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-              Currently at <span className="font-semibold text-purple-600 dark:text-purple-400">DigitalBuzz LLP</span>,
+              Currently at <a href="https://www.digitalbuzzindia.com/" target="_blank" rel="noopener noreferrer" className="font-semibold text-purple-600 dark:text-purple-400 cursor-pointer hover:text-purple-800 dark:hover:text-purple-300 hover:underline underline-offset-2 transition-colors duration-200">DigitalBuzz LLP</a>,
               leading frontend delivery of a multi-role SaaS CRM — building everything from reusable component
               libraries to real-time WebSocket chat modules.
             </p>
@@ -176,7 +204,7 @@ hover:shadow-md hover:shadow-purple-500/20"
               className="text-center p-6 rounded-2xl bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/50 shadow-sm"
             >
               <p className="text-4xl font-bold text-purple-600 dark:text-purple-400 mb-1">
-                {stat.value}
+                <AnimatedCounter target={stat.target} suffix={stat.suffix} />
               </p>
               <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">
                 {stat.label}
