@@ -13,8 +13,9 @@ const navLinks = [
 
 const Navbar = () => {
   const { isDark, toggleTheme } = useTheme()
-  const [isScrolled, setIsScrolled]   = useState(false)
-  const [menuOpen,   setMenuOpen]     = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [menuOpen,   setMenuOpen]   = useState(false)
+  const [activeSection, setActiveSection] = useState('')
 
   // Add glass effect after scrolling 20px
   useEffect(() => {
@@ -28,6 +29,40 @@ const Navbar = () => {
     const handleResize = () => { if (window.innerWidth >= 768) setMenuOpen(false) }
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  // Track active section via IntersectionObserver
+  useEffect(() => {
+    const sectionIds = navLinks.map(l => l.href.slice(1))
+    const observers = []
+
+    // Use a map to track latest intersection ratio per section
+    const ratios = {}
+
+    const pickActive = () => {
+      // If near the bottom of the page, force last section active
+      const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 10
+      if (atBottom) { setActiveSection(sectionIds[sectionIds.length - 1]); return }
+      const top = Object.entries(ratios).sort((a, b) => b[1] - a[1])[0]
+      if (top && top[1] > 0) setActiveSection(top[0])
+    }
+
+    sectionIds.forEach(id => {
+      const el = document.getElementById(id)
+      if (!el) return
+      const obs = new IntersectionObserver(
+        ([entry]) => { ratios[id] = entry.intersectionRatio; pickActive() },
+        { threshold: [0, 0.1, 0.25, 0.5, 0.75, 1] }
+      )
+      obs.observe(el)
+      observers.push(obs)
+    })
+
+    window.addEventListener('scroll', pickActive, { passive: true })
+    return () => {
+      observers.forEach(o => o.disconnect())
+      window.removeEventListener('scroll', pickActive)
+    }
   }, [])
 
   return (
@@ -50,18 +85,26 @@ const Navbar = () => {
 
         {/* Desktop Links */}
         <ul className="hidden md:flex items-center gap-8">
-          {navLinks.map(link => (
-            <li key={link.label}>
-              <a
-                href={link.href}
-                className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors relative group"
-              >
-                {link.label}
-                {/* Underline animation on hover */}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 dark:bg-purple-400 group-hover:w-full transition-all duration-300" />
-              </a>
-            </li>
-          ))}
+          {navLinks.map(link => {
+            const isActive = activeSection === link.href.slice(1)
+            return (
+              <li key={link.label}>
+                <a
+                  href={link.href}
+                  className={`text-sm font-medium transition-colors relative group
+                    ${isActive
+                      ? 'text-purple-600 dark:text-purple-400'
+                      : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                    }`}
+                >
+                  {link.label}
+                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-purple-600 dark:bg-purple-400 transition-all duration-300
+                    ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`}
+                  />
+                </a>
+              </li>
+            )
+          })}
         </ul>
 
         {/* Right side — theme toggle + mobile menu button */}
@@ -121,17 +164,24 @@ const Navbar = () => {
           ${menuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
       >
         <ul className="bg-white/95 dark:bg-gray-950/95 backdrop-blur-md px-6 pb-6 pt-2 flex flex-col gap-4 border-b border-gray-200/50 dark:border-gray-800/50">
-          {navLinks.map(link => (
-            <li key={link.label}>
-              <a
-                href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className="block text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors py-1"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
+          {navLinks.map(link => {
+            const isActive = activeSection === link.href.slice(1)
+            return (
+              <li key={link.label}>
+                <a
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className={`block text-sm font-medium transition-colors py-1
+                    ${isActive
+                      ? 'text-purple-600 dark:text-purple-400'
+                      : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                    }`}
+                >
+                  {link.label}
+                </a>
+              </li>
+            )
+          })}
           <li>
             <a
               href={resumePdf}
