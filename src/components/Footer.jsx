@@ -1,8 +1,6 @@
 const navLinks = ["About", "Projects", "Skills", "Contact"];
 
 export default function Footer() {
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
-
   return (
     <footer className="bg-neutral-950 text-neutral-400 py-12 px-6 border-t border-neutral-800">
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
@@ -28,14 +26,6 @@ export default function Footer() {
             </a>
           ))}
         </nav>
-
-        {/* Back to Top */}
-        <button
-          onClick={scrollToTop}
-          className="text-xs border border-neutral-700 hover:border-violet-500 hover:text-violet-400 px-4 py-2 rounded-lg transition-all duration-200"
-        >
-          ↑ Back to Top
-        </button>
       </div>
     </footer>
   );

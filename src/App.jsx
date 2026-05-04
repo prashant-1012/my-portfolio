@@ -1,4 +1,5 @@
 import ScrollProgress from './components/ScrollProgress'
+import BackToTop from './components/BackToTop'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -22,6 +23,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   )
 }
