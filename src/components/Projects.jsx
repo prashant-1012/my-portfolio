@@ -34,6 +34,7 @@ const ProjectCard = ({ project, index }) => {
         <img
           src={project.image}
           alt={project.title}
+          loading="lazy"
           onLoad={() => setImgLoaded(true)}
           className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-105 ${imgLoaded ? 'opacity-100' : 'opacity-0'}`}
         />

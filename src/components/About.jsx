@@ -116,6 +116,7 @@ const About = () => {
                 <img
                   src={profileImg}
                   alt="Prashant Kumar"
+                  loading="lazy"
                   className="w-full h-full object-cover"
                 />
               </div>
