@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import {ExternalLink, ArrowUpRight } from 'lucide-react'
 import { projects } from '../constants/data'
@@ -13,6 +14,7 @@ const fadeUp = {
 }
 
 const ProjectCard = ({ project, index }) => {
+  const [imgLoaded, setImgLoaded] = useState(false)
   return (
     <motion.div
       variants={fadeUp}
@@ -24,10 +26,16 @@ const ProjectCard = ({ project, index }) => {
     >
       {/* Project image */}
       <div className="relative overflow-hidden h-52">
+        {!imgLoaded && (
+          <div className="absolute inset-0 bg-gray-200 dark:bg-gray-700 animate-pulse">
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 dark:via-white/5 to-transparent -translate-x-full animate-[shimmer_1.5s_infinite]" />
+          </div>
+        )}
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          onLoad={() => setImgLoaded(true)}
+          className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-105 ${imgLoaded ? 'opacity-100' : 'opacity-0'}`}
         />
 
         {/* Overlay on hover */}
