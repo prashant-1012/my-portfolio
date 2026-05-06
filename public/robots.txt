@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://prashantkumar-dev.vercel.app/sitemap.xml
