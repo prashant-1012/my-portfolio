@@ -28,6 +28,56 @@
     <meta name="twitter:image"       content="https://prashantkumar-dev.vercel.app/ogImage.png" />
 
     <title>Prashant Kumar | Software Engineer - React Developer</title>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://prashantkumar-dev.vercel.app/#person",
+          "name": "Prashant Kumar",
+          "jobTitle": "Software Engineer (Frontend)",
+          "description": "Frontend Engineer with 4+ years building scalable SaaS CRM platforms. Specializing in React, Redux Toolkit, TypeScript, and Tailwind CSS.",
+          "url": "https://prashantkumar-dev.vercel.app/",
+          "image": "https://prashantkumar-dev.vercel.app/ogImage.png",
+          "email": "developer99ai@gmail.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Pune",
+            "addressRegion": "Maharashtra",
+            "addressCountry": "IN"
+          },
+          "sameAs": [
+            "https://github.com/prashant-1012",
+            "https://www.linkedin.com/in/prashantk-dev/"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://prashantkumar-dev.vercel.app/#website",
+          "name": "Prashant Kumar | Portfolio",
+          "url": "https://prashantkumar-dev.vercel.app/",
+          "author": {
+            "@id": "https://prashantkumar-dev.vercel.app/#person"
+          }
+        },
+        {
+          "@type": "ProfilePage",
+          "@id": "https://prashantkumar-dev.vercel.app/#profilepage",
+          "url": "https://prashantkumar-dev.vercel.app/",
+          "name": "Prashant Kumar – Frontend Engineer Portfolio",
+          "isPartOf": {
+            "@id": "https://prashantkumar-dev.vercel.app/#website"
+          },
+          "about": {
+            "@id": "https://prashantkumar-dev.vercel.app/#person"
+          }
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
