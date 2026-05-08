@@ -1,5 +1,6 @@
 import planniumImg from "../assets/Plannium.png";
 import crmImg from "../assets/CRM.png";
+import cognivoyaImg from "../assets/Cognivoya.PNG";
 
 export const personalInfo = {
   name: "Prashant Kumar",
@@ -14,14 +15,35 @@ export const personalInfo = {
 
 export const skills = [
   { category: "Languages", items: ["JavaScript (ES6+)", "TypeScript", "HTML5", "CSS3"] },
-  { category: "Frameworks", items: ["React.js", "Redux Toolkit", "React Router", "React Table"] },
-  { category: "Styling", items: ["Tailwind CSS", "CSS Modules"] },
-  { category: "API & State", items: ["REST APIs", "Axios", "createAsyncThunk", "Redux"] },
+  { category: "Frameworks", items: ["React.js", "Redux Toolkit", "React Router v6", "React Table", "Radix UI"] },
+  { category: "Styling", items: ["Tailwind CSS", "CSS Modules", "CSS Custom Properties"] },
+  { category: "API & State", items: ["REST APIs", "RTK Query", "Axios", "createAsyncThunk", "Redux"] },
   { category: "Real-time", items: ["WebSockets", "Socket.io"] },
-  { category: "Tools", items: ["Git", "GitHub", "Jira", "Postman", "Figma", "Vite"] },
+  { category: "Tools", items: ["Git", "GitHub", "Jira", "Postman", "Figma", "Vite", "PWA"] },
 ]
 
 export const projects = [
+  {
+    id: 4,
+    title: "Cognivoya – AI Tools Discovery Platform",
+    description: "Production-grade AI tools discovery platform inspired by Futurepedia and Product Hunt. Browse 60+ curated AI tools, filter by category, search via a ⌘K command palette, bookmark favorites, and view full tool detail pages — all with smooth page transitions, skeleton loaders, and PWA support.",
+    tags: [
+      "React 19",
+      "Redux Toolkit",
+      "RTK Query",
+      "React Router v6",
+      "Tailwind CSS v4",
+      "Framer Motion",
+      "Radix UI",
+      "PWA",
+      "Vite 8",
+      "Code Splitting",
+    ],
+    image: cognivoyaImg,
+    github: "https://github.com/prashant-1012/cognivoya",
+    live: "https://cognivoya.vercel.app",
+    featured: true,
+  },
   {
     id: 1,
     title: "Mini CRM Analytics Dashboard",

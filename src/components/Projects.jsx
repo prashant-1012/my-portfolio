@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import {ExternalLink, ArrowUpRight } from 'lucide-react'
+import { ExternalLink, ArrowUpRight, Star } from 'lucide-react'
 import { projects } from '../constants/data'
 import { FaGithub } from 'react-icons/fa'
 
@@ -13,7 +13,7 @@ const fadeUp = {
   })
 }
 
-const ProjectCard = ({ project, index }) => {
+const FeaturedProjectCard = ({ project }) => {
   const [imgLoaded, setImgLoaded] = useState(false)
   return (
     <motion.div
@@ -21,11 +21,11 @@ const ProjectCard = ({ project, index }) => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      custom={index * 0.15}
-      className="group flex flex-col rounded-2xl overflow-hidden bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/50 shadow-sm hover:shadow-xl hover:border-purple-200 dark:hover:border-purple-800/60 transition-all duration-300 hover:-translate-y-1"
+      custom={0.1}
+      className="group grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] rounded-2xl overflow-hidden bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/50 shadow-sm hover:shadow-2xl hover:border-purple-200 dark:hover:border-purple-800/60 transition-all duration-300 mb-8"
     >
-      {/* Project image */}
-      <div className="relative overflow-hidden h-52">
+      {/* Image */}
+      <div className="relative overflow-hidden h-64 lg:h-auto min-h-[280px]">
         {!imgLoaded && (
           <div className="absolute inset-0 bg-gray-200 dark:bg-gray-700 animate-pulse">
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 dark:via-white/5 to-transparent -translate-x-full animate-[shimmer_1.5s_infinite]" />
@@ -36,10 +36,11 @@ const ProjectCard = ({ project, index }) => {
           alt={project.title}
           loading="lazy"
           onLoad={() => setImgLoaded(true)}
-          className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-105 ${imgLoaded ? 'opacity-100' : 'opacity-0'}`}
+          className={`w-full h-full object-cover transition-all duration-700 group-hover:scale-105 ${imgLoaded ? 'opacity-100' : 'opacity-0'}`}
         />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/10 dark:to-black/30" />
 
-        {/* Overlay on hover */}
+        {/* Hover overlay */}
         <div className="absolute inset-0 bg-purple-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
           <a
             href={project.github}
@@ -64,10 +65,127 @@ const ProjectCard = ({ project, index }) => {
         </div>
       </div>
 
-      {/* Card content */}
-      <div className="flex flex-col flex-1 p-6">
+      {/* Content */}
+      <div className="flex flex-col justify-between p-8">
+        <div>
+          {/* Featured badge */}
+          <div className="flex items-center gap-2 mb-4">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 text-xs font-semibold border border-purple-200 dark:border-purple-800">
+              <Star size={11} className="fill-current" />
+              Featured Project
+            </span>
+          </div>
 
-        {/* Title row */}
+          <div className="flex items-start justify-between gap-3 mb-4">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-200 leading-tight">
+              {project.title}
+            </h3>
+            <ArrowUpRight
+              size={20}
+              className="shrink-0 text-gray-300 dark:text-gray-600 group-hover:text-purple-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200 mt-1"
+            />
+          </div>
+
+          <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-6">
+            {project.description}
+          </p>
+
+          <div className="flex flex-wrap gap-2 mb-8">
+            {project.tags.map(tag => (
+              <span
+                key={tag}
+                className="px-2.5 py-1 text-xs font-medium rounded-full bg-purple-50 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300 border border-purple-100 dark:border-purple-800"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex items-center gap-4 pt-5 border-t border-gray-100 dark:border-gray-700/50">
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-xs font-semibold hover:opacity-80 transition-opacity"
+          >
+            <FaGithub size={14} />
+            View Code
+          </a>
+          <a
+            href={project.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl border border-purple-200 dark:border-purple-800 text-purple-700 dark:text-purple-300 text-xs font-semibold hover:bg-purple-50 dark:hover:bg-purple-950/40 transition-colors"
+          >
+            <ExternalLink size={14} />
+            Live Demo
+          </a>
+        </div>
+      </div>
+    </motion.div>
+  )
+}
+
+const ProjectCard = ({ project, index }) => {
+  const [imgLoaded, setImgLoaded] = useState(false)
+  const isWip = project.live === '#' && project.github === '#'
+  return (
+    <motion.div
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      custom={index * 0.15}
+      className="group flex flex-col rounded-2xl overflow-hidden bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/50 shadow-sm hover:shadow-xl hover:border-purple-200 dark:hover:border-purple-800/60 transition-all duration-300 hover:-translate-y-1"
+    >
+      {/* Image */}
+      <div className="relative overflow-hidden h-52">
+        {!imgLoaded && (
+          <div className="absolute inset-0 bg-gray-200 dark:bg-gray-700 animate-pulse">
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 dark:via-white/5 to-transparent -translate-x-full animate-[shimmer_1.5s_infinite]" />
+          </div>
+        )}
+        <img
+          src={project.image}
+          alt={project.title}
+          loading="lazy"
+          onLoad={() => setImgLoaded(true)}
+          className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-105 ${imgLoaded ? 'opacity-100' : 'opacity-0'}`}
+        />
+        {isWip && (
+          <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-amber-400/90 text-amber-900 text-xs font-semibold backdrop-blur-sm">
+            In Development
+          </span>
+        )}
+
+        {/* Hover overlay */}
+        <div className="absolute inset-0 bg-purple-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/20 backdrop-blur-sm text-white text-sm font-medium hover:bg-white/30 transition-all border border-white/20"
+            onClick={e => e.stopPropagation()}
+          >
+            <FaGithub size={16} />
+            Code
+          </a>
+          <a
+            href={project.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/20 backdrop-blur-sm text-white text-sm font-medium hover:bg-white/30 transition-all border border-white/20"
+            onClick={e => e.stopPropagation()}
+          >
+            <ExternalLink size={16} />
+            Live
+          </a>
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="flex flex-col flex-1 p-6">
         <div className="flex items-start justify-between gap-3 mb-3">
           <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-200">
             {project.title}
@@ -78,12 +196,10 @@ const ProjectCard = ({ project, index }) => {
           />
         </div>
 
-        {/* Description */}
         <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed flex-1 mb-5">
           {project.description}
         </p>
 
-        {/* Tags */}
         <div className="flex flex-wrap gap-2 mb-5">
           {project.tags.map(tag => (
             <span
@@ -95,7 +211,6 @@ const ProjectCard = ({ project, index }) => {
           ))}
         </div>
 
-        {/* Footer links */}
         <div className="flex items-center gap-4 pt-4 border-t border-gray-100 dark:border-gray-700/50">
           <a
             href={project.github}
@@ -117,15 +232,16 @@ const ProjectCard = ({ project, index }) => {
             Live Demo
           </a>
         </div>
-
       </div>
     </motion.div>
   )
 }
 
 const Projects = () => {
+  const featuredProject = projects.find(p => p.featured)
+  const gridProjects = projects.filter(p => !p.featured)
+
   return (
-    
     <section
       id="projects"
       className="py-24 px-6 bg-gray-50 dark:bg-gray-900/50"
@@ -152,9 +268,12 @@ const Projects = () => {
           </p>
         </motion.div>
 
+        {/* Featured project */}
+        {featuredProject && <FeaturedProjectCard project={featuredProject} />}
+
         {/* Projects grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, i) => (
+          {gridProjects.map((project, i) => (
             <ProjectCard
               key={project.id}
               project={project}
@@ -188,7 +307,6 @@ const Projects = () => {
 
       </div>
     </section>
-   
   )
 }
 
