@@ -1,6 +1,7 @@
 import planniumImg from "../assets/Plannium.png";
 import crmImg from "../assets/CRM.png";
 import cognivoyaImg from "../assets/Cognivoya.PNG";
+import pingoraImg from "../assets/Pingora.png";
 
 export const personalInfo = {
   name: "Prashant Kumar",
@@ -18,7 +19,7 @@ export const skills = [
   { category: "Frameworks", items: ["React.js", "Redux Toolkit", "React Router v6", "React Table", "Radix UI"] },
   { category: "Styling", items: ["Tailwind CSS", "CSS Modules", "CSS Custom Properties"] },
   { category: "API & State", items: ["REST APIs", "RTK Query", "Axios", "createAsyncThunk", "Redux"] },
-  { category: "Real-time", items: ["WebSockets", "Socket.io"] },
+  { category: "Real-time", items: ["WebSockets", "Socket.io", "Firebase Firestore", "Firebase Auth"] },
   { category: "Tools", items: ["Git", "GitHub", "Jira", "Postman", "Figma", "Vite", "PWA"] },
 ]
 
@@ -76,23 +77,22 @@ export const projects = [
   },
   {
     id: 3,
-    "title": "Real-time Chat Module (Under Development)",
-    "description": "Building a real-time chat system with Socket.io for seamless communication between CRM users, featuring secure authentication and scalable backend architecture.",
-    "tags": [
-      "React.js",
-      "Tailwind CSS",
+    title: "Pingora – Real-Time Chat App",
+    description: "Full-featured real-time messaging app with 1-on-1 DMs, group chats, emoji reactions, reply threads, typing indicators, read receipts, and presence indicators. Backed by Firebase Firestore for live sync, Firebase Auth for email/password login, and a fully responsive mobile UI with light/dark theming.",
+    tags: [
+      "React 18",
       "Redux Toolkit",
-      "React Router",
-      "Jest",
-      "React Testing Library",
-      "Socket.io",
-      "WebSockets",
-      "REST API",
-      "JWT Auth"
+      "React Router v7",
+      "Firebase Firestore",
+      "Firebase Auth",
+      "Firebase Storage",
+      "Tailwind CSS",
+      "Radix UI",
+      "Vite",
     ],
-    image: "https://placehold.co/600x400/06b6d4/ffffff?text=Chat+Module",
-    github: "#",
-    live: "#",
+    image: pingoraImg,
+    github: "https://github.com/prashant-1012/pingora-chat-app",
+    live: "https://pingoralabs.vercel.app/chat",
   },
 ]
 

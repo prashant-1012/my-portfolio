@@ -171,7 +171,7 @@ const About = () => {
 
             {/* Tags */}
             <div className="flex flex-wrap gap-2 pt-2">
-              {['React.js', 'TypeScript', 'Redux Toolkit', 'RTK Query', 'React Router v6', 'Tailwind CSS', 'Framer Motion', 'Radix UI', 'Jest', 'React Testing Library', 'Socket.io', 'WebSockets', 'REST APIs', 'PWA'].map(tag => (
+              {['React.js', 'TypeScript', 'Redux Toolkit', 'RTK Query', 'React Router v6', 'Tailwind CSS', 'Framer Motion', 'Radix UI', 'Firebase', 'Jest', 'React Testing Library', 'Socket.io', 'WebSockets', 'REST APIs', 'PWA'].map(tag => (
                 <span
                   key={tag}
                   className="px-3 py-1 text-sm font-medium rounded-full 
