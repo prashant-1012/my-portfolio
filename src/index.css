@@ -26,6 +26,13 @@ html {
   100% { transform: translateX(200%); }
 }
 
+/* Hide native cursor on pointer-capable (desktop) devices */
+@media (pointer: fine) {
+  *, *::before, *::after {
+    cursor: none !important;
+  }
+}
+
 /* Noise/grain texture overlay */
 body::before {
   content: '';
