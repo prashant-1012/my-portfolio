@@ -21,7 +21,7 @@ const BackToTop = () => {
           transition={{ duration: 0.25 }}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           aria-label="Back to top"
-          className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-purple-600 hover:bg-purple-700 text-white shadow-lg hover:shadow-purple-500/40 transition-colors duration-200"
+          className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-violet-600 hover:bg-violet-700 text-white shadow-lg hover:shadow-violet-500/40 transition-colors duration-200"
         >
           <ArrowUp size={18} />
         </motion.button>

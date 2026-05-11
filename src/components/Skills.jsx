@@ -16,31 +16,23 @@ const fadeUp = {
 
 // Map each category to an icon and accent color
 const categoryConfig = {
-  'Languages':       { icon: Code2,      color: 'text-blue-600 dark:text-blue-400',    bg: 'bg-blue-50 dark:bg-blue-950/50'    },
-  'Frameworks':      { icon: Layers,     color: 'text-purple-600 dark:text-purple-400', bg: 'bg-purple-50 dark:bg-purple-950/50' },
-  'Styling':         { icon: Paintbrush, color: 'text-pink-600 dark:text-pink-400',     bg: 'bg-pink-50 dark:bg-pink-950/50'    },
-  'API & State':     { icon: GitMerge,   color: 'text-indigo-600 dark:text-indigo-400', bg: 'bg-indigo-50 dark:bg-indigo-950/50' },
-  'Real-time':       { icon: Radio,      color: 'text-green-600 dark:text-green-400',   bg: 'bg-green-50 dark:bg-green-950/50'  },
-  'Tools':           { icon: Wrench,     color: 'text-amber-600 dark:text-amber-400',   bg: 'bg-amber-50 dark:bg-amber-950/50'  },
+  'Languages':       { icon: Code2,      color: 'text-violet-600 dark:text-violet-400', bg: 'bg-violet-50 dark:bg-violet-950/50' },
+  'Frameworks':      { icon: Layers,     color: 'text-violet-600 dark:text-violet-400', bg: 'bg-violet-50 dark:bg-violet-950/50' },
+  'Styling':         { icon: Paintbrush, color: 'text-violet-600 dark:text-violet-400', bg: 'bg-violet-50 dark:bg-violet-950/50' },
+  'API & State':     { icon: GitMerge,   color: 'text-violet-600 dark:text-violet-400', bg: 'bg-violet-50 dark:bg-violet-950/50' },
+  'Real-time':       { icon: Radio,      color: 'text-violet-600 dark:text-violet-400', bg: 'bg-violet-50 dark:bg-violet-950/50' },
+  'Tools':           { icon: Wrench,     color: 'text-violet-600 dark:text-violet-400', bg: 'bg-violet-50 dark:bg-violet-950/50' },
 }
 
-// Pill color per category — keeps branding consistent inside cards
-const pillConfig = {
-  'Languages':   'bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 border-blue-100 dark:border-blue-800',
-  'Frameworks':  'bg-purple-50 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300 border-purple-100 dark:border-purple-800',
-  'Styling':     'bg-pink-50 dark:bg-pink-950/40 text-pink-700 dark:text-pink-300 border-pink-100 dark:border-pink-800',
-  'API & State': 'bg-indigo-50 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 border-indigo-100 dark:border-indigo-800',
-  'Real-time':   'bg-green-50 dark:bg-green-950/40 text-green-700 dark:text-green-300 border-green-100 dark:border-green-800',
-  'Tools':       'bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 border-amber-100 dark:border-amber-800',
-}
+// Single neutral pill style across all categories — editorial, not rainbow
+const pillClass = 'bg-gray-50 dark:bg-white/5 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-white/10'
 
 const SkillCard = ({ category, items, index }) => {
   const config = categoryConfig[category] || {
     icon: Terminal,
-    color: 'text-gray-600 dark:text-gray-400',
-    bg: 'bg-gray-50 dark:bg-gray-800/50',
+    color: 'text-violet-600 dark:text-violet-400',
+    bg: 'bg-violet-50 dark:bg-violet-950/50',
   }
-  const pillClass = pillConfig[category] || 'bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-700'
 
   const Icon = config.icon
 
@@ -52,7 +44,7 @@ const SkillCard = ({ category, items, index }) => {
       whileInView="visible"
       viewport={{ once: true }}
       custom={index * 0.08}
-      className="group p-6 rounded-2xl bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/50 shadow-sm hover:shadow-lg hover:border-purple-200 dark:hover:border-purple-800/60 transition-all duration-300 hover:-translate-y-1"
+      className="group p-6 rounded-2xl bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/50 shadow-sm hover:shadow-lg hover:border-violet-200 dark:hover:border-violet-800/60 transition-all duration-300 hover:-translate-y-1"
     >
       {/* Icon */}
       <div className={`w-11 h-11 rounded-xl ${config.bg} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}>
@@ -84,7 +76,7 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="py-24 px-6 bg-white dark:bg-gray-950"
+      className="py-24 px-6 bg-white dark:bg-canvas-950"
     >
       <div className="max-w-6xl mx-auto">
 
@@ -97,7 +89,7 @@ const Skills = () => {
           custom={0}
           className="text-center mb-16"
         >
-          <span className="text-sm font-semibold tracking-widest uppercase text-purple-600 dark:text-purple-400">
+          <span className="text-sm font-semibold tracking-widest uppercase text-violet-600 dark:text-violet-400">
             Skills
           </span>
           <h2 className="mt-3 text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white tracking-tight">
@@ -129,7 +121,7 @@ const Skills = () => {
           custom={0.5}
           className="text-center text-sm text-gray-400 dark:text-gray-600 mt-12"
         >
-          Always learning · Currently exploring TypeScript deeper and system design patterns
+          Always learning · Currently exploring Next.js deeper and system design patterns
         </motion.p>
 
       </div>

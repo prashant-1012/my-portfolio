@@ -2,7 +2,7 @@ const navLinks = ["About", "Projects", "Skills", "Contact"];
 
 export default function Footer() {
   return (
-    <footer className="bg-neutral-950 text-neutral-400 py-12 px-6 border-t border-neutral-800">
+    <footer className="bg-canvas-950 text-neutral-400 py-12 px-6 border-t border-neutral-800/60">
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Brand */}
         <div className="text-center md:text-left">

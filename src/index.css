@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import '@fontsource-variable/geist';
 
 @tailwind base;
 @tailwind components;
@@ -9,7 +10,12 @@
 }
 
 body {
-  @apply bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300;
+  @apply bg-white dark:bg-canvas-950 text-gray-900 dark:text-gray-100 transition-colors duration-300;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Geist Variable', 'Geist', 'Inter', system-ui, sans-serif;
 }
 
 html {
@@ -18,4 +24,15 @@ html {
 
 @keyframes shimmer {
   100% { transform: translateX(200%); }
+}
+
+/* Noise/grain texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.04;
 }

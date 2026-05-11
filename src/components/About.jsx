@@ -77,7 +77,7 @@ const About = () => {
     
     <section
       id="about"
-      className="py-24 px-6 bg-gray-50 dark:bg-gray-900/50"
+      className="py-24 px-6 bg-gray-50 dark:bg-canvas-900"
     >
       <div className="max-w-6xl mx-auto">
 
@@ -90,7 +90,7 @@ const About = () => {
           custom={0}
           className="text-center mb-16"
         >
-          <span className="text-sm font-semibold tracking-widest uppercase text-purple-600 dark:text-purple-400">
+          <span className="text-sm font-semibold tracking-widest uppercase text-violet-600 dark:text-violet-400">
             About Me
           </span>
           <h2 className="mt-3 text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white tracking-tight">
@@ -112,7 +112,7 @@ const About = () => {
           >
             <div className="relative">
               {/* Main image container */}
-              <div className="w-72 h-72 sm:w-80 sm:h-80 rounded-3xl overflow-hidden border-2 border-purple-100 dark:border-purple-900 shadow-2xl">
+              <div className="w-72 h-72 sm:w-80 sm:h-80 rounded-3xl overflow-hidden border-2 border-violet-100 dark:border-violet-900 shadow-2xl">
                 <img
                   src={profileImg}
                   alt="Prashant Kumar"
@@ -129,7 +129,7 @@ const About = () => {
                 transition={{ delay: 0.4, duration: 0.4 }}
                 className="absolute -bottom-5 -left-5 bg-white dark:bg-gray-800 rounded-2xl px-5 py-3 shadow-xl border border-gray-100 dark:border-gray-700"
               >
-                <p className="text-2xl font-bold text-purple-600 dark:text-purple-400">4+</p>
+                <p className="text-2xl font-bold text-violet-600 dark:text-violet-400">4+</p>
                 <p className="text-xs text-gray-500 dark:text-gray-400 font-medium">Years of Experience</p>
               </motion.div>
 
@@ -141,7 +141,7 @@ const About = () => {
                 transition={{ delay: 0.5, duration: 0.4 }}
                 className="absolute -top-5 -right-5 bg-white dark:bg-gray-800 rounded-2xl px-5 py-3 shadow-xl border border-gray-100 dark:border-gray-700"
               >
-                <p className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">React</p>
+                <p className="text-2xl font-bold text-violet-600 dark:text-violet-400">React</p>
                 <p className="text-xs text-gray-500 dark:text-gray-400 font-medium">Primary Stack</p>
               </motion.div>
 
@@ -164,7 +164,7 @@ const About = () => {
             </p>
 
             <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-              Currently at <a href="https://www.digitalbuzzindia.com/" target="_blank" rel="noopener noreferrer" className="font-semibold text-purple-600 dark:text-purple-400 cursor-pointer hover:text-purple-800 dark:hover:text-purple-300 hover:underline underline-offset-2 transition-colors duration-200">DigitalBuzz LLP</a>,
+              Currently at <a href="https://www.digitalbuzzindia.com/" target="_blank" rel="noopener noreferrer" className="font-semibold text-violet-600 dark:text-violet-400 cursor-pointer hover:text-purple-800 dark:hover:text-purple-300 hover:underline underline-offset-2 transition-colors duration-200">DigitalBuzz LLP</a>,
               leading frontend delivery of a multi-role SaaS CRM — building everything from reusable component
               libraries to real-time WebSocket chat modules.
             </p>
@@ -175,12 +175,12 @@ const About = () => {
                 <span
                   key={tag}
                   className="px-3 py-1 text-sm font-medium rounded-full 
-bg-purple-50 dark:bg-purple-950/50 
-text-purple-700 dark:text-purple-300 
-border border-purple-100 dark:border-purple-800
+bg-violet-50 dark:bg-violet-950/50
+text-violet-700 dark:text-violet-300
+border border-violet-100 dark:border-violet-800
 transform transition-all duration-300 ease-out
-hover:scale-110 hover:-translate-y-0.5 
-hover:shadow-md hover:shadow-purple-500/20"
+hover:scale-110 hover:-translate-y-0.5
+hover:shadow-md hover:shadow-violet-500/20"
                 >
                   {tag}
                 </span>
@@ -204,7 +204,7 @@ hover:shadow-md hover:shadow-purple-500/20"
               key={stat.label}
               className="text-center p-6 rounded-2xl bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/50 shadow-sm"
             >
-              <p className="text-4xl font-bold text-purple-600 dark:text-purple-400 mb-1">
+              <p className="text-4xl font-bold text-violet-600 dark:text-violet-400 mb-1">
                 <AnimatedCounter target={stat.target} suffix={stat.suffix} />
               </p>
               <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">
@@ -224,10 +224,10 @@ hover:shadow-md hover:shadow-purple-500/20"
               whileInView="visible"
               viewport={{ once: true }}
               custom={i * 0.1}
-              className="group p-6 rounded-2xl bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/50 shadow-sm hover:shadow-md hover:border-purple-200 dark:hover:border-purple-800 transition-all duration-300"
+              className="group p-6 rounded-2xl bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/50 shadow-sm hover:shadow-md hover:border-violet-200 dark:hover:border-violet-800 transition-all duration-300"
             >
-              <div className="w-10 h-10 rounded-xl bg-purple-50 dark:bg-purple-950/50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <item.icon size={20} className="text-purple-600 dark:text-purple-400" />
+              <div className="w-10 h-10 rounded-xl bg-violet-50 dark:bg-violet-950/50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                <item.icon size={20} className="text-violet-600 dark:text-violet-400" />
               </div>
               <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
                 {item.title}

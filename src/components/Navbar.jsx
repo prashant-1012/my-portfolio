@@ -69,7 +69,7 @@ const Navbar = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300
         ${isScrolled
-          ? 'bg-white/80 dark:bg-gray-950/80 backdrop-blur-md shadow-sm border-b border-gray-200/50 dark:border-gray-800/50'
+          ? 'bg-white/80 dark:bg-canvas-950/90 backdrop-blur-md shadow-sm border-b border-gray-200/50 dark:border-gray-800/50'
           : 'bg-transparent'
         }`}
     >
@@ -78,9 +78,9 @@ const Navbar = () => {
         {/* Logo */}
         <a
           href="#hero"
-          className="text-xl font-bold tracking-tight text-gray-900 dark:text-white hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+          className="text-xl font-bold tracking-tight text-gray-900 dark:text-white hover:text-violet-600 dark:hover:text-violet-400 transition-colors"
         >
-          PK<span className="text-purple-600 dark:text-purple-400">.</span>
+          PK<span className="text-violet-600 dark:text-violet-400">.</span>
         </a>
 
         {/* Desktop Links */}
@@ -93,12 +93,12 @@ const Navbar = () => {
                   href={link.href}
                   className={`text-sm font-medium transition-colors relative group
                     ${isActive
-                      ? 'text-purple-600 dark:text-purple-400'
+                      ? 'text-violet-600 dark:text-violet-400'
                       : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
                     }`}
                 >
                   {link.label}
-                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-purple-600 dark:bg-purple-400 transition-all duration-300
+                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-violet-600 dark:bg-violet-400 transition-all duration-300
                     ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`}
                   />
                 </a>
@@ -140,7 +140,7 @@ const Navbar = () => {
           <a
             href={resumePdf}
             download="Prashant_Kumar_Resume.pdf"
-            className="hidden md:inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-purple-600 hover:bg-purple-700 text-white transition-colors duration-200"
+            className="hidden md:inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-violet-600 hover:bg-violet-700 text-white transition-colors duration-200"
           >
             <Download size={16} />
             Resume
@@ -163,7 +163,7 @@ const Navbar = () => {
         className={`md:hidden transition-all duration-300 overflow-hidden
           ${menuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
       >
-        <ul className="bg-white/95 dark:bg-gray-950/95 backdrop-blur-md px-6 pb-6 pt-2 flex flex-col gap-4 border-b border-gray-200/50 dark:border-gray-800/50">
+        <ul className="bg-white/95 dark:bg-canvas-950/95 backdrop-blur-md px-6 pb-6 pt-2 flex flex-col gap-4 border-b border-gray-200/50 dark:border-gray-800/50">
           {navLinks.map(link => {
             const isActive = activeSection === link.href.slice(1)
             return (
@@ -173,7 +173,7 @@ const Navbar = () => {
                   onClick={() => setMenuOpen(false)}
                   className={`block text-sm font-medium transition-colors py-1
                     ${isActive
-                      ? 'text-purple-600 dark:text-purple-400'
+                      ? 'text-violet-600 dark:text-violet-400'
                       : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
                     }`}
                 >
@@ -186,7 +186,7 @@ const Navbar = () => {
             <a
               href={resumePdf}
               download="Prashant_Kumar_Resume.pdf"
-              className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-purple-600 hover:bg-purple-700 text-white transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-violet-600 hover:bg-violet-700 text-white transition-colors"
             >
               <Download size={16} />
               Resume
