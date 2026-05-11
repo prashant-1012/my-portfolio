@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+﻿import { motion } from 'framer-motion'
 import { Briefcase, Calendar, MapPin, CheckCircle2 } from 'lucide-react'
 import { experience } from '../constants/data'
 
@@ -37,7 +37,7 @@ const ExperienceCard = ({ item, index }) => {
         {/* Dot */}
         <div className={`relative z-10 flex items-center justify-center w-10 h-10 rounded-full border-2 shrink-0 transition-all duration-300
           ${isFirst
-            ? 'bg-violet-600 border-violet-600 shadow-lg shadow-violet-500/30'
+            ? 'bg-emerald-600 border-emerald-600 shadow-lg shadow-emerald-500/30'
             : 'bg-white dark:bg-canvas-800 border-gray-200 dark:border-gray-700'
           }`}
         >
@@ -58,20 +58,20 @@ const ExperienceCard = ({ item, index }) => {
 
       {/* Card */}
       <div className={`flex-1 pb-12 ${index === experience.length - 1 ? 'pb-0' : ''}`}>
-        <div className="group p-6 rounded-2xl bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/50 shadow-sm hover:shadow-lg hover:border-violet-200 dark:hover:border-violet-800/60 transition-all duration-300">
+        <div className="group p-6 rounded-2xl bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/50 shadow-glow-sm hover:shadow-glow hover:border-emerald-200 dark:hover:border-emerald-800/60 transition-all duration-300">
 
           {/* Header */}
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
             <div>
               {/* Role */}
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors duration-200">
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-200">
                 {item.role}
               </h3>
 
               {/* Company */}
               <div className="flex items-center gap-1.5 mt-1">
-                <MapPin size={13} className="text-violet-500 dark:text-violet-400 shrink-0" />
-                <span className="text-sm font-semibold text-violet-600 dark:text-violet-400">
+                <MapPin size={13} className="text-emerald-500 dark:text-emerald-400 shrink-0" />
+                <span className="text-sm font-semibold text-emerald-600 dark:text-emerald-400">
                   {item.company}
                 </span>
               </div>
@@ -85,7 +85,7 @@ const ExperienceCard = ({ item, index }) => {
               </div>
               <span className={`px-2.5 py-1 text-xs font-medium rounded-full
                 ${isFirst
-                  ? 'bg-violet-50 dark:bg-violet-950/50 text-violet-700 dark:text-violet-400 animate-pulse border border-violet-100 dark:border-violet-800'
+                  ? 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-400 animate-pulse border border-emerald-100 dark:border-emerald-800'
                   : 'bg-gray-50 dark:bg-gray-700/50 text-gray-600 dark:text-gray-400 border border-gray-100 dark:border-gray-700'
                 }`}
               >
@@ -103,7 +103,7 @@ const ExperienceCard = ({ item, index }) => {
               <li key={i} className="flex items-start gap-3">
                 <CheckCircle2
                   size={16}
-                  className="text-violet-500 dark:text-violet-400 shrink-0 mt-0.5"
+                  className="text-emerald-500 dark:text-emerald-400 shrink-0 mt-0.5"
                 />
                 <span className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                   {point}
@@ -135,7 +135,7 @@ const Experience = () => {
           custom={0}
           className="text-center mb-16"
         >
-          <span className="text-sm font-semibold tracking-widest uppercase text-violet-600 dark:text-violet-400">
+          <span className="text-sm font-semibold tracking-widest uppercase text-emerald-600 dark:text-emerald-400">
             Experience
           </span>
           <h2 className="mt-3 text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white tracking-tight">
@@ -164,9 +164,9 @@ const Experience = () => {
           whileInView="visible"
           viewport={{ once: true }}
           custom={0.4}
-          className="mt-12 p-6 rounded-2xl bg-violet-50 dark:bg-violet-950/30 border border-violet-100 dark:border-violet-800/50"
+          className="mt-12 p-6 rounded-2xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-800/50"
         >
-          <h4 className="text-sm font-semibold text-violet-700 dark:text-violet-300 mb-3 uppercase tracking-widest">
+          <h4 className="text-sm font-semibold text-emerald-700 dark:text-emerald-300 mb-3 uppercase tracking-widest">
             Education
           </h4>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -177,13 +177,13 @@ const Experience = () => {
             ].map(edu => (
               <div
                 key={edu.degree}
-                className="p-4 rounded-xl bg-white dark:bg-gray-800/50 border border-l-4 border-violet-100 dark:border-violet-800/30"
+                className="p-4 rounded-xl bg-white dark:bg-gray-800/50 border border-l-4 border-emerald-100 dark:border-emerald-800/30"
               >
                 <p className="text-sm font-semibold text-gray-900 dark:text-white leading-snug mb-1">
                   {edu.degree}
                 </p>
                 <p className="text-xs text-gray-500 dark:text-gray-400">{edu.school}</p>
-                <p className="text-xs text-violet-600 dark:text-violet-400 mt-1 font-medium">{edu.year}</p>
+                <p className="text-xs text-emerald-600 dark:text-emerald-400 mt-1 font-medium">{edu.year}</p>
               </div>
             ))}
           </div>

@@ -1,4 +1,4 @@
-const navLinks = ["About", "Projects", "Skills", "Contact"];
+﻿const navLinks = ["About", "Projects", "Skills", "Contact"];
 
 export default function Footer() {
   return (
@@ -7,7 +7,7 @@ export default function Footer() {
         {/* Brand */}
         <div className="text-center md:text-left">
           <p className="text-white font-bold text-lg tracking-tight">
-            Prashant<span className="text-violet-400">.</span>
+            Prashant<span className="text-emerald-400">.</span>
           </p>
           <p className="text-xs mt-1 text-neutral-500">
             © {new Date().getFullYear()} All rights reserved.
@@ -20,7 +20,7 @@ export default function Footer() {
             <a
               key={link}
               href={`#${link.toLowerCase()}`}
-              className="hover:text-violet-400 transition-colors duration-200"
+              className="hover:text-emerald-400 transition-colors duration-200"
             >
               {link}
             </a>

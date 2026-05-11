@@ -20,6 +20,13 @@ h1, h2, h3, h4, h5, h6 {
 
 html {
   scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+}
+
+/* Each section is a snap target. scroll-margin-top offsets the fixed 64px navbar. */
+section {
+  scroll-snap-align: start;
+  scroll-margin-top: 4rem;
 }
 
 @keyframes shimmer {

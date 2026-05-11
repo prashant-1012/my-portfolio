@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+﻿import { motion } from 'framer-motion'
 import { ArrowDown, Mail, MapPin } from 'lucide-react'
 import { personalInfo } from '../constants/data'
 import { FaGithub } from 'react-icons/fa'
@@ -24,10 +24,10 @@ const Hero = () => {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:48px_48px] dark:bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)]" />
 
       {/* Purple glow blob — top right */}
-      <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-violet-400/20 dark:bg-violet-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-emerald-400/20 dark:bg-emerald-600/10 rounded-full blur-3xl pointer-events-none" />
 
       {/* Violet glow blob — bottom left */}
-      <div className="absolute bottom-20 left-0 w-[400px] h-[400px] bg-violet-400/15 dark:bg-violet-600/8 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-20 left-0 w-[400px] h-[400px] bg-emerald-400/15 dark:bg-emerald-600/8 rounded-full blur-3xl pointer-events-none" />
 
       {/* Main content */}
       <div className="relative z-10 max-w-4xl mx-auto text-center">
@@ -63,7 +63,7 @@ const Hero = () => {
           custom={0.3}
           className="mb-6"
         >
-          <span className="text-2xl sm:text-3xl font-semibold bg-gradient-to-r from-violet-500 to-violet-400 dark:from-violet-400 dark:to-violet-300 bg-clip-text text-transparent">
+          <span className="text-2xl sm:text-3xl font-semibold bg-gradient-to-r from-emerald-500 to-emerald-400 dark:from-emerald-400 dark:to-emerald-300 bg-clip-text text-transparent">
             {personalInfo.role}
           </span>
         </motion.div>
@@ -102,7 +102,7 @@ const Hero = () => {
           {/* Primary CTA */}
           <a
             href="#projects"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-violet-600 hover:bg-violet-700 text-white font-semibold text-sm transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg shadow-violet-500/25"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg shadow-emerald-500/25"
           >
             View My Work
           </a>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+﻿import { useState, useEffect } from 'react'
 import { Moon, Sun, Menu, X, Download } from 'lucide-react'
 import useTheme from '../hooks/useTheme'
 import resumePdf from '../assets/Prashant_Kumar_Resume.pdf'
@@ -78,9 +78,9 @@ const Navbar = () => {
         {/* Logo */}
         <a
           href="#hero"
-          className="text-xl font-bold tracking-tight text-gray-900 dark:text-white hover:text-violet-600 dark:hover:text-violet-400 transition-colors"
+          className="text-xl font-bold tracking-tight text-gray-900 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
         >
-          PK<span className="text-violet-600 dark:text-violet-400">.</span>
+          PK<span className="text-emerald-600 dark:text-emerald-400">.</span>
         </a>
 
         {/* Desktop Links */}
@@ -93,12 +93,12 @@ const Navbar = () => {
                   href={link.href}
                   className={`text-sm font-medium transition-colors relative group
                     ${isActive
-                      ? 'text-violet-600 dark:text-violet-400'
+                      ? 'text-emerald-600 dark:text-emerald-400'
                       : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
                     }`}
                 >
                   {link.label}
-                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-violet-600 dark:bg-violet-400 transition-all duration-300
+                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-emerald-600 dark:bg-emerald-400 transition-all duration-300
                     ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`}
                   />
                 </a>
@@ -140,7 +140,7 @@ const Navbar = () => {
           <a
             href={resumePdf}
             download="Prashant_Kumar_Resume.pdf"
-            className="hidden md:inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-violet-600 hover:bg-violet-700 text-white transition-colors duration-200"
+            className="hidden md:inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white transition-colors duration-200"
           >
             <Download size={16} />
             Resume
@@ -173,7 +173,7 @@ const Navbar = () => {
                   onClick={() => setMenuOpen(false)}
                   className={`block text-sm font-medium transition-colors py-1
                     ${isActive
-                      ? 'text-violet-600 dark:text-violet-400'
+                      ? 'text-emerald-600 dark:text-emerald-400'
                       : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
                     }`}
                 >
@@ -186,7 +186,7 @@ const Navbar = () => {
             <a
               href={resumePdf}
               download="Prashant_Kumar_Resume.pdf"
-              className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-violet-600 hover:bg-violet-700 text-white transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white transition-colors"
             >
               <Download size={16} />
               Resume

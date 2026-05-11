@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+﻿import { useEffect, useState } from 'react'
 import { ArrowUp } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -21,7 +21,7 @@ const BackToTop = () => {
           transition={{ duration: 0.25 }}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           aria-label="Back to top"
-          className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-violet-600 hover:bg-violet-700 text-white shadow-lg hover:shadow-violet-500/40 transition-colors duration-200"
+          className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg hover:shadow-emerald-500/40 transition-colors duration-200"
         >
           <ArrowUp size={18} />
         </motion.button>

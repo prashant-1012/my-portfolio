@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+﻿import { useEffect, useState } from 'react'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 
 const CustomCursor = () => {
@@ -52,12 +52,12 @@ const CustomCursor = () => {
     <>
       {/* Outer ring — spring-lagged */}
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 -ml-4 -mt-4 rounded-full border border-violet-500 pointer-events-none z-[99999]"
+        className="fixed top-0 left-0 w-8 h-8 -ml-4 -mt-4 rounded-full border border-emerald-500 pointer-events-none z-[99999]"
         style={{ x: ringX, y: ringY }}
         animate={{
           scale:           clicking ? 0.7  : hovering ? 1.65 : 1,
-          backgroundColor: hovering ? 'rgba(139,92,246,0.12)' : 'rgba(0,0,0,0)',
-          borderColor:     hovering ? 'rgb(167,139,250)'       : 'rgb(139,92,246)',
+          backgroundColor: hovering ? 'rgba(52,211,153,0.12)'  : 'rgba(0,0,0,0)',
+          borderColor:     hovering ? 'rgb(110,231,183)'        : 'rgb(52,211,153)',
           opacity:         clicking ? 0.6  : 1,
         }}
         transition={{ duration: 0.14, ease: 'easeOut' }}
@@ -65,7 +65,7 @@ const CustomCursor = () => {
 
       {/* Center dot — exact mouse position */}
       <motion.div
-        className="fixed top-0 left-0 w-1.5 h-1.5 -ml-[3px] -mt-[3px] rounded-full bg-violet-500 pointer-events-none z-[99999]"
+        className="fixed top-0 left-0 w-1.5 h-1.5 -ml-[3px] -mt-[3px] rounded-full bg-emerald-500 pointer-events-none z-[99999]"
         style={{ x: mouseX, y: mouseY }}
         animate={{
           scale:   hovering ? 0   : clicking ? 2.5 : 1,

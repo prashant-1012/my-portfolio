@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ExternalLink, ArrowUpRight, Star } from 'lucide-react'
 import { projects } from '../constants/data'
@@ -22,7 +22,7 @@ const FeaturedProjectCard = ({ project }) => {
       whileInView="visible"
       viewport={{ once: true }}
       custom={0.1}
-      className="group grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] rounded-2xl overflow-hidden bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/50 shadow-sm hover:shadow-2xl hover:border-violet-200 dark:hover:border-violet-800/60 transition-all duration-300 mb-8"
+      className="group grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] rounded-2xl overflow-hidden bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/50 shadow-glow-sm hover:shadow-glow-lg hover:border-emerald-200 dark:hover:border-emerald-800/60 transition-all duration-300 mb-8"
     >
       {/* Image */}
       <div className="relative overflow-hidden h-64 lg:h-auto min-h-[280px]">
@@ -41,7 +41,7 @@ const FeaturedProjectCard = ({ project }) => {
         <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/10 dark:to-black/30" />
 
         {/* Hover overlay */}
-        <div className="absolute inset-0 bg-violet-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+        <div className="absolute inset-0 bg-emerald-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
           <a
             href={project.github}
             target="_blank"
@@ -70,19 +70,19 @@ const FeaturedProjectCard = ({ project }) => {
         <div>
           {/* Featured badge */}
           <div className="flex items-center gap-2 mb-4">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-violet-100 dark:bg-violet-950/60 text-violet-700 dark:text-violet-300 text-xs font-semibold border border-violet-200 dark:border-violet-800">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 text-xs font-semibold border border-emerald-200 dark:border-emerald-800">
               <Star size={11} className="fill-current" />
               Featured Project
             </span>
           </div>
 
           <div className="flex items-start justify-between gap-3 mb-4">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors duration-200 leading-tight">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-200 leading-tight">
               {project.title}
             </h3>
             <ArrowUpRight
               size={20}
-              className="shrink-0 text-gray-300 dark:text-gray-600 group-hover:text-violet-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200 mt-1"
+              className="shrink-0 text-gray-300 dark:text-gray-600 group-hover:text-emerald-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200 mt-1"
             />
           </div>
 
@@ -138,7 +138,7 @@ const ProjectCard = ({ project, index }) => {
       whileInView="visible"
       viewport={{ once: true }}
       custom={index * 0.15}
-      className="group flex flex-col rounded-2xl overflow-hidden bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/50 shadow-sm hover:shadow-xl hover:border-violet-200 dark:hover:border-violet-800/60 transition-all duration-300 hover:-translate-y-1"
+      className="group flex flex-col rounded-2xl overflow-hidden bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/50 shadow-glow-sm hover:shadow-glow hover:border-emerald-200 dark:hover:border-emerald-800/60 transition-all duration-300 hover:-translate-y-1"
     >
       {/* Image */}
       <div className="relative overflow-hidden h-52">
@@ -161,7 +161,7 @@ const ProjectCard = ({ project, index }) => {
         )}
 
         {/* Hover overlay */}
-        <div className="absolute inset-0 bg-violet-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+        <div className="absolute inset-0 bg-emerald-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
           <a
             href={project.github}
             target="_blank"
@@ -188,12 +188,12 @@ const ProjectCard = ({ project, index }) => {
       {/* Content */}
       <div className="flex flex-col flex-1 p-6">
         <div className="flex items-start justify-between gap-3 mb-3">
-          <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors duration-200">
+          <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-200">
             {project.title}
           </h3>
           <ArrowUpRight
             size={18}
-            className="shrink-0 text-gray-300 dark:text-gray-600 group-hover:text-violet-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
+            className="shrink-0 text-gray-300 dark:text-gray-600 group-hover:text-emerald-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
           />
         </div>
 
@@ -258,7 +258,7 @@ const Projects = () => {
           custom={0}
           className="text-center mb-16"
         >
-          <span className="text-sm font-semibold tracking-widest uppercase text-violet-600 dark:text-violet-400">
+          <span className="text-sm font-semibold tracking-widest uppercase text-emerald-600 dark:text-emerald-400">
             Projects
           </span>
           <h2 className="mt-3 text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white tracking-tight">

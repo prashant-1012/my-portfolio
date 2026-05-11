@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+﻿import { motion } from 'framer-motion'
 import {
   Code2, Layers, Paintbrush, GitMerge,
   Radio, Wrench, Terminal
@@ -16,12 +16,12 @@ const fadeUp = {
 
 // Map each category to an icon and accent color
 const categoryConfig = {
-  'Languages':       { icon: Code2,      color: 'text-violet-600 dark:text-violet-400', bg: 'bg-violet-50 dark:bg-violet-950/50' },
-  'Frameworks':      { icon: Layers,     color: 'text-violet-600 dark:text-violet-400', bg: 'bg-violet-50 dark:bg-violet-950/50' },
-  'Styling':         { icon: Paintbrush, color: 'text-violet-600 dark:text-violet-400', bg: 'bg-violet-50 dark:bg-violet-950/50' },
-  'API & State':     { icon: GitMerge,   color: 'text-violet-600 dark:text-violet-400', bg: 'bg-violet-50 dark:bg-violet-950/50' },
-  'Real-time':       { icon: Radio,      color: 'text-violet-600 dark:text-violet-400', bg: 'bg-violet-50 dark:bg-violet-950/50' },
-  'Tools':           { icon: Wrench,     color: 'text-violet-600 dark:text-violet-400', bg: 'bg-violet-50 dark:bg-violet-950/50' },
+  'Languages':       { icon: Code2,      color: 'text-emerald-600 dark:text-emerald-400', bg: 'bg-emerald-50 dark:bg-emerald-950/50' },
+  'Frameworks':      { icon: Layers,     color: 'text-emerald-600 dark:text-emerald-400', bg: 'bg-emerald-50 dark:bg-emerald-950/50' },
+  'Styling':         { icon: Paintbrush, color: 'text-emerald-600 dark:text-emerald-400', bg: 'bg-emerald-50 dark:bg-emerald-950/50' },
+  'API & State':     { icon: GitMerge,   color: 'text-emerald-600 dark:text-emerald-400', bg: 'bg-emerald-50 dark:bg-emerald-950/50' },
+  'Real-time':       { icon: Radio,      color: 'text-emerald-600 dark:text-emerald-400', bg: 'bg-emerald-50 dark:bg-emerald-950/50' },
+  'Tools':           { icon: Wrench,     color: 'text-emerald-600 dark:text-emerald-400', bg: 'bg-emerald-50 dark:bg-emerald-950/50' },
 }
 
 // Single neutral pill style across all categories — editorial, not rainbow
@@ -30,8 +30,8 @@ const pillClass = 'bg-gray-50 dark:bg-white/5 text-gray-700 dark:text-gray-300 b
 const SkillCard = ({ category, items, index }) => {
   const config = categoryConfig[category] || {
     icon: Terminal,
-    color: 'text-violet-600 dark:text-violet-400',
-    bg: 'bg-violet-50 dark:bg-violet-950/50',
+    color: 'text-emerald-600 dark:text-emerald-400',
+    bg: 'bg-emerald-50 dark:bg-emerald-950/50',
   }
 
   const Icon = config.icon
@@ -44,7 +44,7 @@ const SkillCard = ({ category, items, index }) => {
       whileInView="visible"
       viewport={{ once: true }}
       custom={index * 0.08}
-      className="group p-6 rounded-2xl bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/50 shadow-sm hover:shadow-lg hover:border-violet-200 dark:hover:border-violet-800/60 transition-all duration-300 hover:-translate-y-1"
+      className="group p-6 rounded-2xl bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/50 shadow-glow-sm hover:shadow-glow hover:border-emerald-200 dark:hover:border-emerald-800/60 transition-all duration-300 hover:-translate-y-1"
     >
       {/* Icon */}
       <div className={`w-11 h-11 rounded-xl ${config.bg} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}>
@@ -89,7 +89,7 @@ const Skills = () => {
           custom={0}
           className="text-center mb-16"
         >
-          <span className="text-sm font-semibold tracking-widest uppercase text-violet-600 dark:text-violet-400">
+          <span className="text-sm font-semibold tracking-widest uppercase text-emerald-600 dark:text-emerald-400">
             Skills
           </span>
           <h2 className="mt-3 text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white tracking-tight">

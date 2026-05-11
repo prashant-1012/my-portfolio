@@ -1,4 +1,4 @@
-import { motion, useInView } from 'framer-motion'
+﻿import { motion, useInView } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import { Code2, Layers, Zap, Users } from 'lucide-react'
 import { personalInfo } from '../constants/data'
@@ -90,7 +90,7 @@ const About = () => {
           custom={0}
           className="text-center mb-16"
         >
-          <span className="text-sm font-semibold tracking-widest uppercase text-violet-600 dark:text-violet-400">
+          <span className="text-sm font-semibold tracking-widest uppercase text-emerald-600 dark:text-emerald-400">
             About Me
           </span>
           <h2 className="mt-3 text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white tracking-tight">
@@ -112,7 +112,7 @@ const About = () => {
           >
             <div className="relative">
               {/* Main image container */}
-              <div className="w-72 h-72 sm:w-80 sm:h-80 rounded-3xl overflow-hidden border-2 border-violet-100 dark:border-violet-900 shadow-2xl">
+              <div className="w-72 h-72 sm:w-80 sm:h-80 rounded-3xl overflow-hidden border-2 border-emerald-100 dark:border-emerald-900 shadow-glow-lg">
                 <img
                   src={profileImg}
                   alt="Prashant Kumar"
@@ -127,9 +127,9 @@ const About = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4, duration: 0.4 }}
-                className="absolute -bottom-5 -left-5 bg-white dark:bg-gray-800 rounded-2xl px-5 py-3 shadow-xl border border-gray-100 dark:border-gray-700"
+                className="absolute -bottom-5 -left-5 bg-white dark:bg-gray-800 rounded-2xl px-5 py-3 shadow-glow border border-gray-100 dark:border-gray-700"
               >
-                <p className="text-2xl font-bold text-violet-600 dark:text-violet-400">4+</p>
+                <p className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">4+</p>
                 <p className="text-xs text-gray-500 dark:text-gray-400 font-medium">Years of Experience</p>
               </motion.div>
 
@@ -139,9 +139,9 @@ const About = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.5, duration: 0.4 }}
-                className="absolute -top-5 -right-5 bg-white dark:bg-gray-800 rounded-2xl px-5 py-3 shadow-xl border border-gray-100 dark:border-gray-700"
+                className="absolute -top-5 -right-5 bg-white dark:bg-gray-800 rounded-2xl px-5 py-3 shadow-glow border border-gray-100 dark:border-gray-700"
               >
-                <p className="text-2xl font-bold text-violet-600 dark:text-violet-400">React</p>
+                <p className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">React</p>
                 <p className="text-xs text-gray-500 dark:text-gray-400 font-medium">Primary Stack</p>
               </motion.div>
 
@@ -164,7 +164,7 @@ const About = () => {
             </p>
 
             <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-              Currently at <a href="https://www.digitalbuzzindia.com/" target="_blank" rel="noopener noreferrer" className="font-semibold text-violet-600 dark:text-violet-400 cursor-pointer hover:text-purple-800 dark:hover:text-purple-300 hover:underline underline-offset-2 transition-colors duration-200">DigitalBuzz LLP</a>,
+              Currently at <a href="https://www.digitalbuzzindia.com/" target="_blank" rel="noopener noreferrer" className="font-semibold text-emerald-600 dark:text-emerald-400 cursor-pointer hover:text-emerald-800 dark:hover:text-emerald-300 hover:underline underline-offset-2 transition-colors duration-200">DigitalBuzz LLP</a>,
               leading frontend delivery of a multi-role SaaS CRM — building everything from reusable component
               libraries to real-time WebSocket chat modules.
             </p>
@@ -175,12 +175,12 @@ const About = () => {
                 <span
                   key={tag}
                   className="px-3 py-1 text-sm font-medium rounded-full 
-bg-violet-50 dark:bg-violet-950/50
-text-violet-700 dark:text-violet-300
-border border-violet-100 dark:border-violet-800
+bg-emerald-50 dark:bg-emerald-950/50
+text-emerald-700 dark:text-emerald-300
+border border-emerald-100 dark:border-emerald-800
 transform transition-all duration-300 ease-out
 hover:scale-110 hover:-translate-y-0.5
-hover:shadow-md hover:shadow-violet-500/20"
+hover:shadow-md hover:shadow-emerald-500/20"
                 >
                   {tag}
                 </span>
@@ -202,9 +202,9 @@ hover:shadow-md hover:shadow-violet-500/20"
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="text-center p-6 rounded-2xl bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/50 shadow-sm"
+              className="text-center p-6 rounded-2xl bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/50 shadow-glow-sm"
             >
-              <p className="text-4xl font-bold text-violet-600 dark:text-violet-400 mb-1">
+              <p className="text-4xl font-bold text-emerald-600 dark:text-emerald-400 mb-1">
                 <AnimatedCounter target={stat.target} suffix={stat.suffix} />
               </p>
               <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">
@@ -224,10 +224,10 @@ hover:shadow-md hover:shadow-violet-500/20"
               whileInView="visible"
               viewport={{ once: true }}
               custom={i * 0.1}
-              className="group p-6 rounded-2xl bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/50 shadow-sm hover:shadow-md hover:border-violet-200 dark:hover:border-violet-800 transition-all duration-300"
+              className="group p-6 rounded-2xl bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/50 shadow-glow-sm hover:shadow-glow hover:border-emerald-200 dark:hover:border-emerald-800 transition-all duration-300"
             >
-              <div className="w-10 h-10 rounded-xl bg-violet-50 dark:bg-violet-950/50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <item.icon size={20} className="text-violet-600 dark:text-violet-400" />
+              <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                <item.icon size={20} className="text-emerald-600 dark:text-emerald-400" />
               </div>
               <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
                 {item.title}

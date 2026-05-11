@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+﻿import { useEffect, useState } from 'react'
 
 const ScrollProgress = () => {
   const [progress, setProgress] = useState(0)
@@ -17,7 +17,7 @@ const ScrollProgress = () => {
   return (
     <div className="fixed top-0 left-0 right-0 h-[3px] z-[9999] bg-transparent">
       <div
-        className="h-full bg-gradient-to-r from-violet-500 to-cyan-400 transition-none"
+        className="h-full bg-gradient-to-r from-emerald-500 to-cyan-400 transition-none"
         style={{ width: `${progress}%` }}
       />
     </div>
