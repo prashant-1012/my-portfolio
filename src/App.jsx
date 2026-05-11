@@ -1,5 +1,5 @@
 import ScrollProgress from './components/ScrollProgress'
-import CustomCursor from './components/CustomCursor'
+// import CustomCursor from './components/CustomCursor'
 import BackToTop from './components/BackToTop'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
@@ -13,7 +13,7 @@ import Footer from './components/Footer'
 function App() {
   return (
     <div className="min-h-screen bg-white dark:bg-canvas-950 transition-colors duration-300">
-      <CustomCursor />
+      {/* <CustomCursor /> */}
       <ScrollProgress />
       <Navbar />
       <main>

@@ -34,11 +34,11 @@ section {
 }
 
 /* Hide native cursor on pointer-capable (desktop) devices */
-@media (pointer: fine) {
+/* @media (pointer: fine) {
   *, *::before, *::after {
     cursor: none !important;
   }
-}
+} */
 
 /* Noise/grain texture overlay */
 body::before {
