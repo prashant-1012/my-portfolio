@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from 'react'
+﻿import { useState, useEffect, useRef, useCallback } from 'react'
 import { Moon, Sun, Menu, X, Download } from 'lucide-react'
 import useTheme from '../hooks/useTheme'
 import resumePdf from '../assets/Prashant_Kumar_Resume.pdf'
@@ -16,6 +16,25 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [menuOpen,   setMenuOpen]   = useState(false)
   const [activeSection, setActiveSection] = useState('')
+
+  // Sliding underline
+  const linkRefs = useRef({})
+  const [underline, setUnderline] = useState({ left: 0, width: 0, opacity: 0 })
+
+  const moveUnderlineTo = useCallback((id) => {
+    const el = linkRefs.current[id]
+    if (!el) return
+    const { offsetLeft, offsetWidth } = el
+    setUnderline({ left: offsetLeft, width: offsetWidth, opacity: 1 })
+  }, [])
+
+  const resetUnderlineToActive = useCallback(() => {
+    if (activeSection) moveUnderlineTo(activeSection)
+    else setUnderline(u => ({ ...u, opacity: 0 }))
+  }, [activeSection, moveUnderlineTo])
+
+  // Keep underline on active section when nothing is hovered
+  useEffect(() => { resetUnderlineToActive() }, [resetUnderlineToActive])
 
   // Add glass effect after scrolling 20px
   useEffect(() => {
@@ -69,43 +88,65 @@ const Navbar = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300
         ${isScrolled
-          ? 'bg-white/80 dark:bg-canvas-950/90 backdrop-blur-md shadow-sm border-b border-gray-200/50 dark:border-gray-800/50'
+          ? 'bg-white/80 dark:bg-canvas-950/90 backdrop-blur-md shadow-sm border-b border-white/5 dark:border-white/5'
           : 'bg-transparent'
         }`}
     >
+      {/* Top highlight line — hardware glass effect */}
+      <div className={`absolute top-0 left-0 right-0 h-px bg-white/10 transition-opacity duration-300 ${isScrolled ? 'opacity-100' : 'opacity-0'}`} />
+
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
 
         {/* Logo */}
         <a
           href="#hero"
-          className="text-xl font-bold tracking-tight text-gray-900 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+          className="group flex items-center gap-0.5 select-none"
+          aria-label="Prashant Kumar — home"
         >
-          PK<span className="text-emerald-600 dark:text-emerald-400">.</span>
+          <span className="font-display text-2xl font-bold tracking-tighter text-gray-900 dark:text-white transition-all duration-300 group-hover:drop-shadow-[0_0_12px_rgba(52,211,153,0.7)]">
+            PK
+          </span>
+          <span className="font-display text-2xl font-bold text-emerald-500 dark:text-emerald-400 transition-all duration-300 group-hover:drop-shadow-[0_0_10px_rgba(52,211,153,0.9)]">
+            .
+          </span>
         </a>
 
         {/* Desktop Links */}
-        <ul className="hidden md:flex items-center gap-8">
+        <div
+          className="hidden md:flex items-center gap-8 relative"
+          onMouseLeave={resetUnderlineToActive}
+        >
           {navLinks.map(link => {
-            const isActive = activeSection === link.href.slice(1)
+            const id = link.href.slice(1)
+            const isActive = activeSection === id
             return (
-              <li key={link.label}>
-                <a
-                  href={link.href}
-                  className={`text-sm font-medium transition-colors relative group
-                    ${isActive
-                      ? 'text-emerald-600 dark:text-emerald-400'
-                      : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
-                    }`}
-                >
-                  {link.label}
-                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-emerald-600 dark:bg-emerald-400 transition-all duration-300
-                    ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`}
-                  />
-                </a>
-              </li>
+              <a
+                key={link.label}
+                href={link.href}
+                ref={el => { linkRefs.current[id] = el }}
+                onMouseEnter={() => moveUnderlineTo(id)}
+                className={`text-sm font-medium transition-colors duration-150
+                  ${isActive
+                    ? 'text-emerald-600 dark:text-emerald-400'
+                    : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                  }`}
+              >
+                {link.label}
+              </a>
             )
           })}
-        </ul>
+
+          {/* Sliding underline indicator */}
+          <span
+            className="absolute -bottom-1 h-0.5 bg-emerald-500 dark:bg-emerald-400 rounded-full pointer-events-none"
+            style={{
+              left:    underline.left,
+              width:   underline.width,
+              opacity: underline.opacity,
+              transition: 'left 200ms ease, width 200ms ease, opacity 150ms ease',
+            }}
+          />
+        </div>
 
         {/* Right side — theme toggle + mobile menu button */}
         <div className="flex items-center gap-3">
@@ -140,8 +181,19 @@ const Navbar = () => {
           <a
             href={resumePdf}
             download="Prashant_Kumar_Resume.pdf"
-            className="hidden md:inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white transition-colors duration-200"
+            className="hidden md:inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg
+              relative overflow-hidden
+              border border-emerald-500/60 dark:border-emerald-400/50
+              text-emerald-600 dark:text-emerald-400
+              hover:border-emerald-400 dark:hover:border-emerald-300
+              hover:text-emerald-500 dark:hover:text-emerald-300
+              transition-colors duration-200
+              group"
           >
+            {/* shimmer sweep */}
+            <span
+              className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-emerald-400/20 to-transparent group-hover:[animation:shimmer_600ms_ease_forwards]"
+            />
             <Download size={16} />
             Resume
           </a>
@@ -186,8 +238,14 @@ const Navbar = () => {
             <a
               href={resumePdf}
               download="Prashant_Kumar_Resume.pdf"
-              className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg
+                relative overflow-hidden
+                border border-emerald-500/60 dark:border-emerald-400/50
+                text-emerald-600 dark:text-emerald-400
+                transition-colors duration-200
+                group"
             >
+              <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-emerald-400/20 to-transparent group-hover:[animation:shimmer_600ms_ease_forwards]" />
               <Download size={16} />
               Resume
             </a>
