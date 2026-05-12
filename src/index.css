@@ -33,6 +33,10 @@ section {
   100% { transform: translateX(200%); }
 }
 
+@keyframes orbit-dot {
+  to { offset-distance: 100%; }
+}
+
 /* Hide native cursor on pointer-capable (desktop) devices */
 /* @media (pointer: fine) {
   *, *::before, *::after {
