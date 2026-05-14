@@ -33,6 +33,14 @@ section {
   100% { transform: translateX(200%); }
 }
 
+@keyframes spin-ring {
+  to { transform: rotate(360deg); }
+}
+
+.profile-ring-spin {
+  animation: spin-ring 4s linear infinite;
+}
+
 @keyframes orbit-dot {
   to { offset-distance: 100%; }
 }

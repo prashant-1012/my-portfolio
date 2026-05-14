@@ -1,6 +1,6 @@
 ﻿import { motion, useInView } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
-import { Code2, Layers, Zap, Users } from 'lucide-react'
+import { Code2, Layers, Zap, Users, Clock, Braces } from 'lucide-react'
 import { personalInfo } from '../constants/data'
 import profileImg from "../assets/portfolio_img.png";
 
@@ -111,14 +111,25 @@ const About = () => {
             className="flex justify-center lg:justify-end"
           >
             <div className="relative">
-              {/* Main image container */}
-              <div className="w-72 h-72 sm:w-80 sm:h-80 rounded-3xl overflow-hidden border-2 border-emerald-100 dark:border-emerald-900 shadow-glow-lg">
-                <img
-                  src={profileImg}
-                  alt="Prashant Kumar"
-                  loading="lazy"
-                  className="w-full h-full object-cover"
+
+              {/* Rotating conic-gradient ring + static image */}
+              <div className="relative w-72 h-72 sm:w-80 sm:h-80">
+                {/* Spinning ring layer — sits behind the image */}
+                <div
+                  className="absolute inset-0 rounded-3xl profile-ring-spin"
+                  style={{
+                    background: 'conic-gradient(from 0deg, #34d399, #06b6d4, #6366f1, #34d399)',
+                  }}
                 />
+                {/* Static image inset by ring thickness */}
+                <div className="absolute inset-[3px] rounded-3xl overflow-hidden shadow-glow-lg">
+                  <img
+                    src={profileImg}
+                    alt="Prashant Kumar"
+                    loading="lazy"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
 
               {/* Floating experience badge */}
@@ -127,10 +138,19 @@ const About = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4, duration: 0.4 }}
-                className="absolute -bottom-5 -left-5 bg-white dark:bg-gray-800 rounded-2xl px-5 py-3 shadow-glow border border-gray-100 dark:border-gray-700"
+                className="absolute -bottom-5 -left-5 bg-white dark:bg-gray-900 rounded-2xl shadow-glow border border-gray-100 dark:border-gray-700/60 overflow-hidden"
               >
-                <p className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">4+</p>
-                <p className="text-xs text-gray-500 dark:text-gray-400 font-medium">Years of Experience</p>
+                {/* Accent top stripe */}
+                <div className="h-1 w-full bg-gradient-to-r from-emerald-400 to-cyan-400" />
+                <div className="flex items-center gap-3 px-4 py-3">
+                  <div className="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 flex items-center justify-center flex-shrink-0">
+                    <Clock size={15} className="text-emerald-500 dark:text-emerald-400" />
+                  </div>
+                  <div>
+                    <p className="text-xl font-bold text-gray-900 dark:text-white leading-none">4+</p>
+                    <p className="text-[11px] text-gray-500 dark:text-gray-400 font-medium mt-0.5">Years Experience</p>
+                  </div>
+                </div>
               </motion.div>
 
               {/* Floating stack badge */}
@@ -139,10 +159,18 @@ const About = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.5, duration: 0.4 }}
-                className="absolute -top-5 -right-5 bg-white dark:bg-gray-800 rounded-2xl px-5 py-3 shadow-glow border border-gray-100 dark:border-gray-700"
+                className="absolute -top-5 -right-5 bg-white dark:bg-gray-900 rounded-2xl shadow-glow border border-gray-100 dark:border-gray-700/60 overflow-hidden"
               >
-                <p className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">React</p>
-                <p className="text-xs text-gray-500 dark:text-gray-400 font-medium">Primary Stack</p>
+                <div className="h-1 w-full bg-gradient-to-r from-cyan-400 to-indigo-400" />
+                <div className="flex items-center gap-3 px-4 py-3">
+                  <div className="w-8 h-8 rounded-lg bg-cyan-50 dark:bg-cyan-950/60 flex items-center justify-center flex-shrink-0">
+                    <Braces size={15} className="text-cyan-500 dark:text-cyan-400" />
+                  </div>
+                  <div>
+                    <p className="text-xl font-bold text-gray-900 dark:text-white leading-none">React</p>
+                    <p className="text-[11px] text-gray-500 dark:text-gray-400 font-medium mt-0.5">Primary Stack</p>
+                  </div>
+                </div>
               </motion.div>
 
             </div>
