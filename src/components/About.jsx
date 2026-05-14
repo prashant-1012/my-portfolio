@@ -1,6 +1,11 @@
 ﻿import { motion, useInView } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
-import { Code2, Layers, Zap, Users, Clock, Braces } from 'lucide-react'
+import { Code2, Layers, Zap, Users, Clock, Braces, Globe, Wifi, FileCode } from 'lucide-react'
+import {
+  SiReact, SiTypescript, SiRedux, SiReactrouter,
+  SiTailwindcss, SiFirebase, SiJest, SiSocketdotio,
+  SiPwa, SiFramer,
+} from 'react-icons/si'
 import { personalInfo } from '../constants/data'
 import profileImg from "../assets/portfolio_img.png";
 
@@ -54,22 +59,48 @@ const highlights = [
     icon: Code2,
     title: 'Clean Code',
     desc: 'Component-driven architecture with reusability and scalability in mind.',
+    color: '#3b82f6',
+    bg: 'rgba(59,130,246,0.08)',
   },
   {
     icon: Zap,
     title: 'Performance First',
     desc: '~30% rendering improvement using memoization and code splitting.',
+    color: '#34d399',
+    bg: 'rgba(52,211,153,0.08)',
   },
   {
     icon: Layers,
     title: 'Full Feature Ownership',
     desc: 'End-to-end delivery from design handoff to production deployment.',
+    color: '#8b5cf6',
+    bg: 'rgba(139,92,246,0.08)',
   },
   {
     icon: Users,
     title: 'Agile Team Player',
     desc: 'Experienced in sprint-based delivery with Git, Jira, and Postman.',
+    color: '#f59e0b',
+    bg: 'rgba(245,158,11,0.08)',
   },
+]
+
+const techTags = [
+  { label: 'React.js',              Icon: SiReact,       color: '#61dafb', tip: '4+ yrs · Primary framework' },
+  { label: 'TypeScript',            Icon: SiTypescript,  color: '#3178c6', tip: '3+ yrs · Type-safe JS' },
+  { label: 'Redux Toolkit',         Icon: SiRedux,       color: '#764abc', tip: '3+ yrs · Global state' },
+  { label: 'RTK Query',             Icon: SiRedux,       color: '#764abc', tip: '2+ yrs · Data fetching layer' },
+  { label: 'React Router v6',       Icon: SiReactrouter, color: '#ca4245', tip: '3+ yrs · Client-side routing' },
+  { label: 'Tailwind CSS',          Icon: SiTailwindcss, color: '#38bdf8', tip: '3+ yrs · Utility-first CSS' },
+  { label: 'Framer Motion',         Icon: SiFramer,      color: '#0055ff', tip: '2+ yrs · Animations' },
+  { label: 'Firebase',              Icon: SiFirebase,    color: '#ffca28', tip: '2+ yrs · Auth, Firestore, Storage' },
+  { label: 'Jest',                  Icon: SiJest,        color: '#c21325', tip: '2+ yrs · Unit testing' },
+  { label: 'Socket.io',             Icon: SiSocketdotio, color: '#010101', tip: '1+ yr · Real-time events' },
+  { label: 'PWA',                   Icon: SiPwa,         color: '#5a0fc8', tip: '1+ yr · Offline-capable apps' },
+  { label: 'React Testing Library', Icon: FileCode,      color: '#e33332', tip: '2+ yrs · Component testing' },
+  { label: 'WebSockets',            Icon: Wifi,          color: '#34d399', tip: '1+ yr · Bi-directional comms' },
+  { label: 'REST APIs',             Icon: Globe,         color: '#06b6d4', tip: '4+ yrs · HTTP integration' },
+  { label: 'Radix UI',              Icon: Code2,         color: '#8b5cf6', tip: '1+ yr · Accessible primitives' },
 ]
 
 const About = () => {
@@ -185,33 +216,51 @@ const About = () => {
             custom={0.2}
             className="space-y-6"
           >
-            <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-              I'm a <span className="font-semibold text-gray-900 dark:text-white">Software Engineer (Frontend)</span> with
-              4+ years of hands-on experience building scalable SaaS CRM platforms. I specialize in
-              React, Redux Toolkit, and Tailwind CSS — focused on clean architecture and real performance gains.
+            <p className="text-2xl font-medium text-gray-900 dark:text-white leading-snug tracking-tight">
+              I'm a <span className="text-emerald-500 dark:text-emerald-400">Software Engineer (Frontend)</span> with
+              4+ years of hands-on experience building scalable SaaS CRM platforms.
             </p>
 
             <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-              Currently at <a href="https://www.digitalbuzzindia.com/" target="_blank" rel="noopener noreferrer" className="font-semibold text-emerald-600 dark:text-emerald-400 cursor-pointer hover:text-emerald-800 dark:hover:text-emerald-300 hover:underline underline-offset-2 transition-colors duration-200">DigitalBuzz LLP</a>,
+              I specialize in React, Redux Toolkit, and Tailwind CSS — focused on clean architecture and real performance gains.
+            </p>
+
+            <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+              Currently at <a href="https://www.digitalbuzzindia.com/" target="_blank" rel="noopener noreferrer" className="font-semibold text-emerald-500 dark:text-emerald-400 underline underline-offset-4 decoration-emerald-400/50 hover:decoration-emerald-400 transition-all duration-200">DigitalBuzz LLP</a>,
               leading frontend delivery of a multi-role SaaS CRM — building everything from reusable component
               libraries to real-time WebSocket chat modules.
             </p>
 
             {/* Tags */}
             <div className="flex flex-wrap gap-2 pt-2">
-              {['React.js', 'TypeScript', 'Redux Toolkit', 'RTK Query', 'React Router v6', 'Tailwind CSS', 'Framer Motion', 'Radix UI', 'Firebase', 'Jest', 'React Testing Library', 'Socket.io', 'WebSockets', 'REST APIs', 'PWA'].map(tag => (
-                <span
-                  key={tag}
-                  className="px-3 py-1 text-sm font-medium rounded-full 
-bg-emerald-50 dark:bg-emerald-950/50
-text-emerald-700 dark:text-emerald-300
-border border-emerald-100 dark:border-emerald-800
-transform transition-all duration-300 ease-out
-hover:scale-110 hover:-translate-y-0.5
-hover:shadow-md hover:shadow-emerald-500/20"
-                >
-                  {tag}
-                </span>
+              {techTags.map(({ label, Icon, color, tip }) => (
+                <div key={label} className="relative group/pill">
+                  {/* Pill */}
+                  <span className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-full
+                    bg-gray-100 dark:bg-gray-800/70
+                    text-gray-700 dark:text-gray-300
+                    border border-gray-200 dark:border-gray-700/60
+                    transition-all duration-200 ease-out cursor-default
+                    group-hover/pill:pr-4 group-hover/pill:border-gray-300 dark:group-hover/pill:border-gray-600
+                    group-hover/pill:bg-white dark:group-hover/pill:bg-gray-800
+                    group-hover/pill:shadow-sm"
+                  >
+                    <Icon size={13} style={{ color }} className="flex-shrink-0" />
+                    {label}
+                  </span>
+                  {/* Tooltip */}
+                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2.5 py-1.5
+                    bg-gray-900 dark:bg-gray-950 text-white text-xs font-medium rounded-lg
+                    whitespace-nowrap pointer-events-none z-10
+                    opacity-0 -translate-y-1 scale-95
+                    group-hover/pill:opacity-100 group-hover/pill:translate-y-0 group-hover/pill:scale-100
+                    transition-all duration-200 ease-out
+                    shadow-lg border border-white/10">
+                    {tip}
+                    {/* Arrow */}
+                    <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-900 dark:border-t-gray-950" />
+                  </div>
+                </div>
               ))}
             </div>
 
@@ -225,37 +274,90 @@ hover:shadow-md hover:shadow-emerald-500/20"
           whileInView="visible"
           viewport={{ once: true }}
           custom={0.3}
-          className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-20"
+          className="grid grid-cols-2 sm:grid-cols-4 mb-20"
         >
-          {stats.map((stat) => (
+          {stats.map((stat, i) => (
             <div
               key={stat.label}
-              className="text-center p-6 rounded-2xl bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/50 shadow-glow-sm"
+              className={`text-center py-8 px-4 ${i < stats.length - 1 ? 'border-r border-gray-200 dark:border-gray-700/60' : ''}`}
             >
-              <p className="text-4xl font-bold text-emerald-600 dark:text-emerald-400 mb-1">
+              <p className="font-display text-6xl font-bold text-gray-900 dark:text-white leading-none tracking-tighter">
                 <AnimatedCounter target={stat.target} suffix={stat.suffix} />
               </p>
-              <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">
+              <p className="mt-3 text-[11px] font-semibold tracking-widest uppercase text-gray-400 dark:text-gray-500">
                 {stat.label}
               </p>
             </div>
           ))}
         </motion.div>
 
-        {/* Highlights grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {highlights.map((item, i) => (
+        {/* Highlights grid — 1 wide + 3 small */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+
+          {/* Wide card (first item) */}
+          {(() => {
+            const item = highlights[0]
+            return (
+              <motion.div
+                key={item.title}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={0}
+                className="group lg:col-span-3 flex flex-col sm:flex-row items-start sm:items-center gap-6 p-8 rounded-2xl bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/50 transition-all duration-300"
+                style={{ '--glow-color': item.color }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.boxShadow = `0 0 0 1px ${item.color}40, 0 8px 32px ${item.color}20`
+                  e.currentTarget.style.borderColor = `${item.color}50`
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.boxShadow = ''
+                  e.currentTarget.style.borderColor = ''
+                }}
+              >
+                <div
+                  className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
+                  style={{ background: item.bg }}
+                >
+                  <item.icon size={28} style={{ color: item.color }} />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed max-w-xl">
+                    {item.desc}
+                  </p>
+                </div>
+              </motion.div>
+            )
+          })()}
+
+          {/* 3 small cards */}
+          {highlights.slice(1).map((item, i) => (
             <motion.div
               key={item.title}
               variants={fadeUp}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              custom={i * 0.1}
-              className="group p-6 rounded-2xl bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/50 shadow-glow-sm hover:shadow-glow hover:border-emerald-200 dark:hover:border-emerald-800 transition-all duration-300"
+              custom={(i + 1) * 0.1}
+              className="group p-6 rounded-2xl bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/50 transition-all duration-300"
+              onMouseEnter={e => {
+                e.currentTarget.style.boxShadow = `0 0 0 1px ${item.color}40, 0 8px 32px ${item.color}20`
+                e.currentTarget.style.borderColor = `${item.color}50`
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.boxShadow = ''
+                e.currentTarget.style.borderColor = ''
+              }}
             >
-              <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <item.icon size={20} className="text-emerald-600 dark:text-emerald-400" />
+              <div
+                className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110"
+                style={{ background: item.bg }}
+              >
+                <item.icon size={22} style={{ color: item.color }} />
               </div>
               <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
                 {item.title}
@@ -265,6 +367,7 @@ hover:shadow-md hover:shadow-emerald-500/20"
               </p>
             </motion.div>
           ))}
+
         </div>
 
       </div>
