@@ -291,70 +291,34 @@ const About = () => {
           ))}
         </motion.div>
 
-        {/* Highlights grid — 1 wide + 3 small */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-
-          {/* Wide card (first item) */}
-          {(() => {
-            const item = highlights[0]
-            return (
-              <motion.div
-                key={item.title}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                custom={0}
-                className="group lg:col-span-3 flex flex-col sm:flex-row items-start sm:items-center gap-6 p-8 rounded-2xl bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/50 transition-all duration-300"
-                style={{ '--glow-color': item.color }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.boxShadow = `0 0 0 1px ${item.color}40, 0 8px 32px ${item.color}20`
-                  e.currentTarget.style.borderColor = `${item.color}50`
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.boxShadow = ''
-                  e.currentTarget.style.borderColor = ''
-                }}
-              >
-                <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
-                  style={{ background: item.bg }}
-                >
-                  <item.icon size={28} style={{ color: item.color }} />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed max-w-xl">
-                    {item.desc}
-                  </p>
-                </div>
-              </motion.div>
-            )
-          })()}
-
-          {/* 3 small cards */}
-          {highlights.slice(1).map((item, i) => (
+        {/* Highlights grid — 4 equal cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {highlights.map((item, i) => (
             <motion.div
               key={item.title}
               variants={fadeUp}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              custom={(i + 1) * 0.1}
-              className="group p-6 rounded-2xl bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/50 transition-all duration-300"
+              custom={i * 0.1}
+              className="group relative p-6 rounded-2xl bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/50 overflow-hidden transition-all duration-300"
               onMouseEnter={e => {
-                e.currentTarget.style.boxShadow = `0 0 0 1px ${item.color}40, 0 8px 32px ${item.color}20`
-                e.currentTarget.style.borderColor = `${item.color}50`
+                e.currentTarget.style.boxShadow = `0 8px 32px ${item.color}20`
+                e.currentTarget.style.borderColor = `${item.color}40`
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.boxShadow = ''
                 e.currentTarget.style.borderColor = ''
               }}
             >
+              {/* Top accent border */}
+              <span
+                className="absolute top-0 left-0 right-0 h-[3px] rounded-t-2xl"
+                style={{ background: item.color }}
+              />
+
               <div
-                className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110"
+                className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 mt-2 transition-transform duration-300 group-hover:scale-110"
                 style={{ background: item.bg }}
               >
                 <item.icon size={22} style={{ color: item.color }} />
@@ -367,7 +331,6 @@ const About = () => {
               </p>
             </motion.div>
           ))}
-
         </div>
 
       </div>
