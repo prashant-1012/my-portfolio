@@ -1,6 +1,16 @@
 ﻿import { motion } from 'framer-motion'
-import { Briefcase, Calendar, MapPin, CheckCircle2 } from 'lucide-react'
+import { Briefcase, Calendar, MapPin, ArrowRight, GraduationCap } from 'lucide-react'
 import { experience } from '../constants/data'
+
+/* Wraps numbers/percentages like ~30%, 5+, 20+ in an accent span */
+const highlightNumbers = (text) => {
+  const parts = text.split(/(~?\d+[\+%x]?(?:\s*(?:more|less))?)/g)
+  return parts.map((part, i) =>
+    /^~?\d+[\+%x]?/.test(part)
+      ? <strong key={i} className="text-emerald-500 dark:text-emerald-400 font-bold">{part}</strong>
+      : part
+  )
+}
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -81,9 +91,15 @@ const ExperienceCard = ({ item, index }) => {
               {/* Company */}
               <div className="flex items-center gap-1.5 mt-1">
                 <MapPin size={13} className="text-emerald-500 dark:text-emerald-400 shrink-0" />
-                <span className="text-sm font-semibold text-emerald-600 dark:text-emerald-400">
+                <a
+                  href={item.companyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative inline-block text-sm font-semibold text-emerald-600 dark:text-emerald-400 group/company"
+                >
                   {item.company}
-                </span>
+                  <span className="absolute left-0 -bottom-px h-px w-full bg-emerald-500 scale-x-0 origin-left transition-transform duration-300 ease-out group-hover/company:scale-x-100" />
+                </a>
               </div>
             </div>
 
@@ -115,13 +131,13 @@ const ExperienceCard = ({ item, index }) => {
           {/* Bullet points */}
           <ul className="space-y-3">
             {item.points.map((point, i) => (
-              <li key={i} className="flex items-start gap-3">
-                <CheckCircle2
-                  size={16}
-                  className="text-emerald-500 dark:text-emerald-400 shrink-0 mt-0.5"
+              <li key={i} className="flex items-start gap-3 group/bullet">
+                <ArrowRight
+                  size={14}
+                  className="text-emerald-500 dark:text-emerald-400 shrink-0 mt-0.5 group-hover/bullet:translate-x-0.5 transition-transform duration-150"
                 />
                 <span className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                  {point}
+                  {highlightNumbers(point)}
                 </span>
               </li>
             ))}
@@ -172,35 +188,60 @@ const Experience = () => {
           ))}
         </div>
 
-        {/* Education note */}
+        {/* Education */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           custom={0.4}
-          className="mt-12 p-6 rounded-2xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-800/50"
+          className="mt-20"
         >
-          <h4 className="text-sm font-semibold text-emerald-700 dark:text-emerald-300 mb-3 uppercase tracking-widest">
-            Education
-          </h4>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {[
-              { degree: 'M.E. Environmental Engineering', school: 'Pune University', year: '2016–2018' },
-              { degree: 'B.Tech Civil Engineering',       school: 'Bharati Vidyapeeth', year: '2011–2015' },
-              { degree: 'Diploma in Network Security',    school: 'Bharati Vidyapeeth', year: '2012–2015' },
-            ].map(edu => (
-              <div
-                key={edu.degree}
-                className="p-4 rounded-xl bg-white dark:bg-gray-800/50 border border-l-4 border-emerald-100 dark:border-emerald-800/30"
-              >
-                <p className="text-sm font-semibold text-gray-900 dark:text-white leading-snug mb-1">
-                  {edu.degree}
-                </p>
-                <p className="text-xs text-gray-500 dark:text-gray-400">{edu.school}</p>
-                <p className="text-xs text-emerald-600 dark:text-emerald-400 mt-1 font-medium">{edu.year}</p>
-              </div>
-            ))}
+          {/* Header */}
+          <div className="flex items-center gap-3 mb-10">
+            <div className="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0">
+              <GraduationCap size={18} className="text-emerald-500 dark:text-emerald-400" />
+            </div>
+            <div>
+              <p className="text-xs font-semibold tracking-widest uppercase text-emerald-600 dark:text-emerald-400">Education</p>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white leading-tight">Academic Background</h3>
+            </div>
+            {/* connecting line to cards */}
+            <div className="flex-1 h-px bg-gradient-to-r from-emerald-500/30 to-transparent ml-2" />
+          </div>
+
+          {/* Horizontal timeline */}
+          <div className="relative">
+            {/* Track line — desktop only */}
+            <div className="hidden sm:block absolute top-4 left-4 right-4 h-px bg-gradient-to-r from-emerald-500/40 via-emerald-500/20 to-transparent" />
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              {[
+                { degree: 'M.E. Environmental Engineering', school: 'Pune University',      year: '2016–2018', index: 0 },
+                { degree: 'B.Tech Civil Engineering',       school: 'Bharati Vidyapeeth',   year: '2011–2015', index: 1 },
+                { degree: 'Diploma in Network Security',    school: 'Bharati Vidyapeeth',   year: '2012–2015', index: 2 },
+              ].map((edu) => (
+                <div key={edu.degree} className="relative flex flex-col">
+                  {/* Node dot on track */}
+                  <div className="hidden sm:flex items-center mb-5">
+                    <div className="w-8 h-8 rounded-full bg-white dark:bg-canvas-900 border-2 border-emerald-500/50 shadow-[0_0_8px_rgba(52,211,153,0.2)] flex items-center justify-center shrink-0">
+                      <div className="w-2 h-2 rounded-full bg-emerald-500" />
+                    </div>
+                  </div>
+
+                  {/* Card */}
+                  <div className="flex-1 p-5 rounded-2xl bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/50 hover:border-emerald-200 dark:hover:border-emerald-800/50 hover:shadow-[0_0_20px_rgba(52,211,153,0.08)] transition-all duration-300">
+                    <p className="text-sm font-bold text-gray-900 dark:text-white leading-snug mb-2">
+                      {edu.degree}
+                    </p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mb-3">{edu.school}</p>
+                    <span className="inline-block px-2.5 py-1 text-[11px] font-semibold rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-800/40">
+                      {edu.year}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </motion.div>
 

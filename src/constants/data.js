@@ -123,6 +123,7 @@ export const experience = [
     id: 1,
     role: "Software Engineer (Frontend)",
     company: "DigitalBuzz LLP",
+    companyUrl: "https://www.digitalbuzzindia.com/",
     period: "Feb 2025 – Present",
     type: "Full-time",
     points: [
@@ -136,6 +137,7 @@ export const experience = [
     id: 2,
     role: "Frontend Developer",
     company: "DigitalBuzz LLP",
+    companyUrl: "https://www.digitalbuzzindia.com/",
     period: "July 2023 – Feb 2025",
     type: "Full-time",
     points: [
@@ -149,6 +151,7 @@ export const experience = [
     id: 3,
     role: "Junior Frontend Developer",
     company: "DigitalBuzz LLP",
+    companyUrl: "https://www.digitalbuzzindia.com/",
     period: "Jan 2022 – July 2023",
     type: "Full-time",
     points: [
