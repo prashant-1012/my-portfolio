@@ -34,31 +34,41 @@ const ExperienceCard = ({ item, index }) => {
     >
       {/* Timeline line + dot */}
       <div className="flex flex-col items-center">
-        {/* Dot */}
-        <div className={`relative z-10 flex items-center justify-center w-10 h-10 rounded-full border-2 shrink-0 transition-all duration-300
-          ${isFirst
-            ? 'bg-emerald-600 border-emerald-600 shadow-lg shadow-emerald-500/30'
-            : 'bg-white dark:bg-canvas-800 border-gray-200 dark:border-gray-700'
-          }`}
-        >
-          <Briefcase
-            size={16}
-            className={isFirst
-              ? 'text-white'
-              : 'text-gray-400 dark:text-gray-500'
-            }
-          />
+        {/* Dot — glowing ring */}
+        <div className="relative z-10 shrink-0 flex items-center justify-center w-10 h-10">
+          {/* Ping ring — current role only */}
+          {isFirst && (
+            <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-20 animate-ping" />
+          )}
+          <div className={`relative flex items-center justify-center w-10 h-10 rounded-full border-2 transition-all duration-300
+            ${isFirst
+              ? 'bg-emerald-500/10 border-emerald-500 shadow-[0_0_12px_rgba(52,211,153,0.5)]'
+              : 'bg-white dark:bg-canvas-900 border-gray-300 dark:border-gray-600 shadow-[0_0_8px_rgba(52,211,153,0.15)]'
+            }`}
+          >
+            <Briefcase
+              size={16}
+              className={isFirst ? 'text-emerald-400' : 'text-gray-400 dark:text-gray-500'}
+            />
+          </div>
         </div>
 
-        {/* Vertical line */}
+        {/* Glowing vertical track */}
         {index !== experience.length - 1 && (
-          <div className="w-px flex-1 mt-2 bg-gradient-to-b from-gray-200 dark:from-gray-700 to-transparent min-h-[2rem]" />
+          <div className="w-px flex-1 mt-2 min-h-[2rem]"
+            style={{ background: 'linear-gradient(to bottom, rgba(52,211,153,0.4), rgba(52,211,153,0.05) 80%, transparent)', boxShadow: '0 0 6px rgba(52,211,153,0.2)' }}
+          />
         )}
       </div>
 
       {/* Card */}
       <div className={`flex-1 pb-12 ${index === experience.length - 1 ? 'pb-0' : ''}`}>
-        <div className="group p-6 rounded-2xl bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/50 shadow-glow-sm hover:shadow-glow hover:border-emerald-200 dark:hover:border-emerald-800/60 transition-all duration-300">
+        <div className={`group p-6 rounded-2xl bg-white dark:bg-gray-800/50 transition-all duration-300
+          ${isFirst
+            ? 'border border-emerald-500/40 shadow-[0_0_0_1px_rgba(52,211,153,0.15),0_0_24px_rgba(52,211,153,0.12)] hover:shadow-[0_0_0_1px_rgba(52,211,153,0.3),0_0_32px_rgba(52,211,153,0.2)]'
+            : 'border border-gray-100 dark:border-gray-700/50 shadow-glow-sm hover:shadow-glow hover:border-emerald-200 dark:hover:border-emerald-800/60'
+          }`}
+        >
 
           {/* Header */}
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
@@ -83,14 +93,19 @@ const ExperienceCard = ({ item, index }) => {
                 <Calendar size={13} />
                 <span>{item.period}</span>
               </div>
-              <span className={`px-2.5 py-1 text-xs font-medium rounded-full
-                ${isFirst
-                  ? 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-400 animate-pulse border border-emerald-100 dark:border-emerald-800'
-                  : 'bg-gray-50 dark:bg-gray-700/50 text-gray-600 dark:text-gray-400 border border-gray-100 dark:border-gray-700'
-                }`}
-              >
-                {isFirst ? '● Current' : item.type}
-              </span>
+              {isFirst ? (
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-bold tracking-wide font-mono">
+                  <span className="relative flex h-1.5 w-1.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-red-500" />
+                  </span>
+                  LIVE
+                </span>
+              ) : (
+                <span className="px-2.5 py-1 text-xs font-medium rounded-full bg-gray-50 dark:bg-gray-700/50 text-gray-600 dark:text-gray-400 border border-gray-100 dark:border-gray-700">
+                  {item.type}
+                </span>
+              )}
             </div>
           </div>
 
