@@ -4,7 +4,7 @@ import { Code2, Layers, Zap, Users, Clock, Braces, Globe, Wifi, FileCode } from 
 import {
   SiReact, SiTypescript, SiRedux, SiReactrouter,
   SiTailwindcss, SiFirebase, SiJest, SiSocketdotio,
-  SiPwa, SiFramer,
+  SiPwa, SiFramer, SiNextdotjs,
 } from 'react-icons/si'
 import { personalInfo } from '../constants/data'
 import profileImg from "../assets/portfolio_img.png";
@@ -87,6 +87,7 @@ const highlights = [
 
 const techTags = [
   { label: 'React.js',              Icon: SiReact,       color: '#61dafb', tip: '4+ yrs · Primary framework' },
+  { label: 'Next.js',               Icon: SiNextdotjs,   color: '#ffffff',  tip: '1+ yr · App Router, SSR, RSC' },
   { label: 'TypeScript',            Icon: SiTypescript,  color: '#3178c6', tip: '3+ yrs · Type-safe JS' },
   { label: 'Redux Toolkit',         Icon: SiRedux,       color: '#764abc', tip: '3+ yrs · Global state' },
   { label: 'RTK Query',             Icon: SiRedux,       color: '#764abc', tip: '2+ yrs · Data fetching layer' },

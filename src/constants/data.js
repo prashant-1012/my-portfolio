@@ -2,6 +2,7 @@ import planniumImg from "../assets/Plannium.png";
 import crmImg from "../assets/CRM.png";
 import cognivoyaImg from "../assets/Cognivoya.PNG";
 import pingoraImg from "../assets/Pingora.png";
+import analytiqImg from "../assets/analytiq.png";
 
 export const personalInfo = {
   name: "Prashant Kumar",
@@ -16,14 +17,35 @@ export const personalInfo = {
 
 export const skills = [
   { category: "Languages", items: ["JavaScript (ES6+)", "TypeScript", "HTML5", "CSS3"] },
-  { category: "Frameworks", items: ["React.js", "Redux Toolkit", "React Router v6", "React Table", "Radix UI"] },
+  { category: "Frameworks", items: ["React.js", "Next.js", "Redux Toolkit", "React Router v6", "React Table", "Radix UI"] },
   { category: "Styling", items: ["Tailwind CSS", "CSS Modules", "CSS Custom Properties"] },
-  { category: "API & State", items: ["REST APIs", "RTK Query", "Axios", "createAsyncThunk", "Redux"] },
+  { category: "API & State", items: ["REST APIs", "RTK Query", "TanStack Query", "Axios", "createAsyncThunk", "Redux"] },
   { category: "Real-time", items: ["WebSockets", "Socket.io", "Firebase Firestore", "Firebase Auth"] },
   { category: "Tools", items: ["Git", "GitHub", "Jira", "Postman", "Figma", "Vite", "PWA"] },
 ]
 
 export const projects = [
+  {
+    id: 5,
+    title: "Analytiq – Multi-Tenant SaaS Analytics Dashboard",
+    description: "Production-grade multi-tenant analytics dashboard with org-scoped data isolation, RBAC (4 roles), per-tenant branding, KPI cards with sparklines, feature usage analytics, drill-down event explorer, CSV export, user & tenant management, and 30s live polling.",
+    tags: [
+      "Next.js 16",
+      "TypeScript",
+      "Tailwind CSS",
+      "Redux Toolkit",
+      "TanStack Query",
+      "Recharts",
+      "NextAuth.js",
+      "ShadCN UI",
+      "REST APIs",
+      "MSW",
+    ],
+    image: analytiqImg,
+    github: "#",
+    live: "https://analytiq-dashboard.vercel.app",
+    featured: true,
+  },
   {
     id: 4,
     title: "Cognivoya – AI Tools Discovery Platform",

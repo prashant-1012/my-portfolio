@@ -6,7 +6,7 @@ import {
   SiTailwindcss,
   SiFirebase,
   SiSocketdotio,
-  SiGit, SiGithub, SiJira, SiPostman, SiFigma, SiVite,
+  SiGit, SiGithub, SiJira, SiPostman, SiFigma, SiVite, SiNextdotjs,
 } from 'react-icons/si'
 import { Code2, Layers, Paintbrush, GitMerge, Radio, Wrench, Zap, ArrowRight, Wifi } from 'lucide-react'
 
@@ -96,6 +96,7 @@ const LanguagesCell = () => {
 const FrameworksCell = () => {
   const items = [
     { label: 'React',         Icon: SiReact,       color: '#61dafb' },
+    { label: 'Next.js',       Icon: SiNextdotjs,   color: '#ffffff' },
     { label: 'Redux Toolkit', Icon: SiRedux,       color: '#764abc' },
     { label: 'React Router',  Icon: SiReactrouter, color: '#ca4245' },
     { label: 'Radix UI',      Icon: SiRadixui,     color: '#ffffff' },

@@ -5,12 +5,13 @@ import { FaGithub } from 'react-icons/fa'
 import {
   SiReact, SiRedux, SiReactrouter, SiTailwindcss, SiFramer,
   SiRadixui, SiPwa, SiVite, SiTypescript, SiAxios, SiFirebase,
-  SiReacthookform,
+  SiReacthookform, SiNextdotjs,
 } from 'react-icons/si'
 import { projects } from '../constants/data'
 
 /* Tag → { Icon, color } — partial match so "React 19", "React.js", "React 18" all hit */
 const TAG_ICON_MAP = [
+  { match: /^next\.?js/i,          Icon: SiNextdotjs,     color: '#ffffff' },
   { match: /^react router/i,       Icon: SiReactrouter,   color: '#ca4245' },
   { match: /^react hook form/i,    Icon: SiReacthookform, color: '#ec4899' },
   { match: /^react/i,              Icon: SiReact,          color: '#61dafb' },
