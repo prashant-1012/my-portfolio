@@ -10,8 +10,7 @@ const EJS_KEY      = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 const socialLinks = [
   { icon: FaGithub, label: "GitHub", href: "https://github.com/prashant-1012" },
-  { icon: FaLinkedin, label: "LinkedIn", href: "https://linkedin.com" },
-  { icon: FaSquareXTwitter, label: "Twitter", href: "https://twitter.com" },
+  { icon: FaLinkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/prashantk-dev/" },
 ];
 
 /* Floating label input */
@@ -123,7 +122,7 @@ export default function Contact() {
             {/* Email */}
             <a
               href="mailto:prashant2009kr@gmail.com"
-              className="group flex items-center gap-4 p-4 rounded-2xl border border-white/8 bg-white/[0.03] hover:bg-white/[0.07] hover:border-emerald-500/30 hover:-translate-y-0.5 transition-all duration-200"
+              className="group flex items-center gap-4 p-4 rounded-2xl border border-neutral-800 bg-white/[0.03] hover:bg-white/[0.07] hover:border-emerald-500/30 hover:-translate-y-0.5 transition-all duration-200"
             >
               <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0">
                 <Mail size={18} />
@@ -136,7 +135,7 @@ export default function Contact() {
             </a>
 
             {/* Location */}
-            <div className="flex items-center gap-4 p-4 rounded-2xl border border-white/8 bg-white/[0.03]">
+            <div className="flex items-center gap-4 p-4 rounded-2xl border border-neutral-800 bg-white/[0.03]">
               <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0">
                 <MapPin size={18} />
               </div>
@@ -152,7 +151,7 @@ export default function Contact() {
               href="https://github.com/prashant-1012"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-4 p-4 rounded-2xl border border-white/8 bg-white/[0.03] hover:bg-white/[0.07] hover:border-emerald-500/30 hover:-translate-y-0.5 transition-all duration-200"
+              className="group flex items-center gap-4 p-4 rounded-2xl border border-neutral-800 bg-white/[0.03] hover:bg-white/[0.07] hover:border-emerald-500/30 hover:-translate-y-0.5 transition-all duration-200"
             >
               <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-neutral-300 shrink-0">
                 <FaGithub size={18} />
@@ -166,10 +165,10 @@ export default function Contact() {
 
             {/* LinkedIn */}
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/prashantk-dev/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-4 p-4 rounded-2xl border border-white/8 bg-white/[0.03] hover:bg-white/[0.07] hover:border-emerald-500/30 hover:-translate-y-0.5 transition-all duration-200"
+              className="group flex items-center gap-4 p-4 rounded-2xl border border-neutral-800 bg-white/[0.03] hover:bg-white/[0.07] hover:border-emerald-500/30 hover:-translate-y-0.5 transition-all duration-200"
             >
               <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 shrink-0">
                 <FaLinkedin size={18} />
