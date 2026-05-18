@@ -41,6 +41,23 @@ section {
   animation: spin-ring 4s linear infinite;
 }
 
+/* Override browser autofill background on dark inputs */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #141414 inset !important;
+  -webkit-text-fill-color: #fff !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+@keyframes scale-in {
+  from { transform: scale(0); }
+  to   { transform: scale(1); }
+}
+
 @keyframes orbit-dot {
   to { offset-distance: 100%; }
 }
